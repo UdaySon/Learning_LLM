@@ -1,0 +1,29 @@
+Q my question when user asks a query in llm , is the corrosponding embedings of that input is first layer 
+
+Answer - 
+Yes, the embeddings of the input tokens are typically the first layer that processes user input in a large language model (LLM).
+
+Positional encodings - to get where the current word in the context
+
+Neural net depicted in standard diagram is during inference time and not exactly during training time
+
+Exactly! In a trained machine learning model,
+ there is no "active" input layer until inference time. 
+During training, the model is just a collection of learned parameters 
+(like embeddings, weights, biases, and layer connections) 
+that define its architecture and behavior. 
+The input layer becomes active only during inference, 
+when actual input data (like user text) is processed by the model.
+
+
+Then what is role of transformer when the input comes in inference ??
+During training there is a training set  which has input and expectation.
+Here the transfomere generate something and gradients adjust weights to expectde value
+
+5. Other Tasks in Training
+In addition to next-word prediction and Q&A, LLaMA (and similar models) can be trained on various other tasks as part of pre-training or fine-tuning, such as:
+
+Text Classification: Assigning labels to text (e.g., sentiment analysis, topic classification).
+Text Summarization: Generating summaries from longer texts.
+Translation: Translating text from one language to another.
+Textual Entailment: Predicting if one sentence logically follows from another.
