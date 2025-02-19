@@ -1,0 +1,48 @@
+
+
+(in) keyElement
+Holds the identifier of the key element which shall be set.
+Id
+keyPtr Holds the pointer to the key data which shall be set as key element.
+keyLength Contains the length of the key element in bytes.
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+CRYPTO_E_KEY_WRITE_FAIL:Request failed because write
+Std_Return-
+Return value access was denied
+Type
+CRYPTO_E_KEY_NOT_AVAILABLE: Request failed, the
+requested key element of the requested key is not available
+CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element
+size does not match size of provided data
+Description Sets the given key element bytes to the key identified by cryptoKeyId.
+Available via Crypto.h
+()
+Note:
+This service works synchronously. However, it is possible that the underlying key
+material is resident in the flash memory. Hence it may take some time to execute this
+function.
+[SWS_Crypto_00075] ⌈ If the Crypto Driver is not yet initialized and if development
+error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementSet shall report CRYPTO_E_UNINIT to the DET and return
+E_NOT_OK.
+()
+[SWS_Crypto_00076] ⌈ If cryptoKeyId is out of range and if development error
+detection for the Crypto Driver is enabled, the function Crypto_KeyElementSet
+shall report CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00077] ⌈ If parameter keyElementId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementSet shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00078] ⌈ If the parameter keyPtr is a null pointer and if development
+error detection for the Crypto Driver is enabled, the function
+56 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

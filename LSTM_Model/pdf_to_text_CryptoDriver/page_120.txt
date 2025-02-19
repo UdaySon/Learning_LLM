@@ -1,0 +1,14 @@
+10.1.16 CryptoNvBlock
+SWS Item [ECUC_Crypto_00055]
+Container Name CryptoNvBlock
+Parent Container CryptoNvStorage
+Description Container to configure key storage in NVM
+Configuration Parameters
+SWS Item [ECUC_Crypto_00057]
+Parameter Name CryptoNvBlockFailedRetries
+Parent Container CryptoNvBlock
+Description Number of retries to request an NVM service operation.
+Multiplicity 0..1
+Type EcucIntegerParamDef
+Range 1 .. 65535
+120 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

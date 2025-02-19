@@ -1,0 +1,39 @@
+
+
+length of job->outputPtr provided with job->outputLengthPtr shall be
+checked if all context relevant data can be stored. If not, the function shall return
+E_NOT_OK.
+()
+[SWS_Crypto_00230] ⌈ To save the context the crypto driver object shall store all
+relevant workspace data of the currently active primitive that was modified by
+previously processed START and UPDATE operation and shall place them into
+job->outputPtr (so-called snapshot of context data). The length of the provided
+data shall be written to the memory where job->outputLengthPtr references to.
+The function shall return E_OK if the operation was successful.
+()
+Note:
+The context data shall contain all data that is needed to restore a workspace with this
+data, so that the crypto primitive can resume the operation at exactly this point. For
+example, if a MAC calculation is currently processed, all internal data of the
+workspace shall be provided so that subsequent update and finish operation provides
+the same MAC as if the job is newly setup, e.g. with a START operation, the context
+is restored and the same set of data is provided when the context snapshot was
+saved. This shall result in the same MAC.
+[SWS_Crypto_00231] ⌈ If job->jobPrimitiveInputOutput->mode is set to
+CRYPTO_OPERATIONMODE_RESTORE_CONTEXT when the crypto driver is called, then
+first job->inputLength shall be checked if the length of the provided context data is
+large enough for the currently active primitive. If not, the function shall return
+E_NOT_OK and shall leave the current state untouched. If enough data are
+provided, the data from job->inputPtr shall be extracted and copied to the right place
+in the current workspace. If the workspace has been successfully restored the
+function shall return E_ OK.
+()
+Note:
+The provision of context data to software components can have high security
+impacts. A thorough security analysis should be made before this feature is activated
+and used. At least, it bears the risk of leaking key material to a malicious caller of this
+function.
+It is up to the crypto driver (object) to perform a consistency check or to encrypt,
+respectively decrypt the context data. But for security reason it is highly
+recommended to use encryption.
+49 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

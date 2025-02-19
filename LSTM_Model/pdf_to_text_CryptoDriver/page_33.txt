@@ -1,0 +1,42 @@
+
+
+or to Crypto_ProcessJob() with primitive service CRYPTO_KEYSETVALID or
+CRYPTO_KEYSETINVALID set. Thus, key element storage in NVM shall not be
+initiated on a call to Crypto_KeyElementSet() or similar operation. The storage
+operation shall only take place if the validation was successfully finished and the
+operation returns E_OK (either directly by a synchronous call or asynchronously
+through the callback).
+(SRS_CryptoStack_00061)
+Rationale:
+Especially when key elements of a key have interdependencies to one or more other
+key element(s) of the same key, writing the key element immediately when it is set
+has the risk, that the key itself can be inconsistent. In addition, the explicit initiation of
+the operation with KEYSETVALID allows the crypto driver to check the consistency
+and interdependency of all elements and storing will be denied if the check fails.
+Also, updating several elements of a key will result in a single write operation to NVM
+and not multiple times for each key element, which can reduce the total number of
+write operations to NVM.
+[SWS_Crypto_00243] ⌈ On KEYSETVALID operation, writing the data block to NVM
+will be initiated by a call of the crypto driver to NvM_SetRamBlockStatus(). This is
+the typical operation when the configuration
+CryptoNvBlock/CryptoNvBlockProcessing is set to DEFERRED.
+If CryptoNvBlock/CryptoNvBlockProcessing is set to IMMEDIATE, the Crypto
+Driver will, besides the call to NvM_SetRamBlockStatus(), also call
+NvM_WriteBlock() immediately afterwards. This will trigger an immediate write of
+the NV RAM Block to non-volatile memory.
+(SRS_CryptoStack_00008, SRS_CryptoStack_00118, SRS_CryptoStack_00120)
+Note:
+For proper operation it is recommended to set the parameter
+NvMBlockUseSetRamBlockStatus and NvMSelectBlockForReadAll of the
+NVM to TRUE. The value NvMSelectBlockForWriteAll shall be set to TRUE if
+CryptoNvBlockProcessing is set to DEFERRED.
+[SWS_Crypto_00244] ⌈ If a call to an NVM service (NvM_SetRamBlockStatus()
+or NvM_WriteBlock()) returns with E_NOT_OK, or when the callback function
+Crypto_<vi>_<ai>_NvBlock_Callback_<NvBlock> (see
+[SWS_Crypto_91026]) indicates with Nvm_RequestResultType that the block
+write operation has failed, the runtime error CRYPTO_E_RE_NVM_ACCESS_FAILED
+shall be reported to the DET. In addition, the service call shall be requested again on
+the next execution of Crypto_MainFunction(). The number of retries can be
+limited by the parameter CryptoNvBlock/CryptoNvBlockFailedRetries.
+(SRS_CryptoStack_00008)
+33 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

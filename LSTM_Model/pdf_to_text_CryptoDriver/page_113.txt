@@ -1,0 +1,38 @@
+
+
+Post-Build Variant Value false
+All
+Pre-compile time X
+Variants
+Multiplicity Configuration
+Class Link time --
+Post-build time --
+All
+Pre-compile time X
+Variants
+Value Configuration Class
+Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00034]
+Parameter Name CryptoPrimitiveService
+Parent Container CryptoPrimitive
+Description Determines the crypto service used for defining the capabilities
+Multiplicity 1
+Type EcucEnumerationParamDef
+CRYPTO_AEADDECRYPT 0x06
+CRYPTO_AEADENCRYPT 0x05
+CRYPTO_DECRYPT 0x04
+CRYPTO_ENCRYPT 0x03
+CRYPTO_HASH 0x00
+CRYPTO_KEYDERIVE 0x0E
+CRYPTO_KEYEXCHANGECALCPUBVAL 0x0F
+Range CRYPTO_KEYEXCHANGECALCSECRET 0x10
+CRYPTO_KEYGENERATE 0x0D
+CRYPTO_KEYSETINVALID 0x14
+CRYPTO_KEYSETVALID 0x13
+CRYPTO_MACGENERATE 0x01
+CRYPTO_MACVERIFY 0x02
+CRYPTO_RANDOMGENERATE 0x0B
+CRYPTO_RANDOMSEED 0x0C
+113 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

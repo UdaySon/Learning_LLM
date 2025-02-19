@@ -1,0 +1,52 @@
+
+
+8.2 Type Definitions
+8.2.1 Extension to Std_ReturnType
+[SWS_Crypto_91018]⌈
+The service request failed because the service is
+CRYPTO_E_BUSY 0x02
+still busy
+CRYPTO_E_ENTROPY_ The service request failed because the entropy of
+0x04
+EXHAUSTED the random number generator is exhausted
+CRYPTO_E_KEY_ The service request failed because read access
+0x06
+READ_FAIL was denied
+CRYPTO_E_KEY_ The service request failed because the writing
+0x07
+WRITE_FAIL access failed
+CRYPTO_E_KEY_NOT_ The service request failed because at least one
+0x08
+AVAILABLE required key element is not available.
+Range
+CRYPTO_E_KEY_NOT_ The service request failed because the key is
+0x09
+VALID invalid.
+CRYPTO_E_KEY_SIZE_ The service request failed because the key size
+0x0A
+MISMATCH does not match.
+CRYPTO_E_JOB_ The service request failed because the Job has
+0x0C
+CANCELED been canceled.
+CRYPTO_E_KEY_ The service request failed because of uninitialized
+0x0D
+EMPTY source key element.
+CRYPTO_E_CUSTOM_
+0x0E Custom processing failed.
+ERROR
+Description --
+Available
+Crypto_GeneralTypes.h
+via
+(SRS_CryptoStack_00095)
+Note:
+CRYPTO_E_KEY_NOT_AVAILABLE is meant to indicate that required key elements of
+a key in the context of a specific Crypto Primitive or key management function
+have been programmed before but at least one of these key elements cannot be
+accessed at the moment (for instance it is temporarily not accessible, e.g. when
+the key is disabled due to debugger connection).
+CRYPTO_E_KEY_EMPTY is meant to indicate that the referred key content has not
+been written so far and has no default value (For example, in SHE 1.1, the error
+code ERC_KEY_EMPTY would be returned then, "if the application attempts to
+use a key that has not been initialized".)
+43 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

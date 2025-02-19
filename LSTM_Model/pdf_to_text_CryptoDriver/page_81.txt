@@ -1,0 +1,16 @@
+
+
+8.6.3 Optional Interfaces
+[SWS_Crypto_91017]⌈
+Header
+API Function Description
+File
+Det_ReportError Det.h Service to report development errors.
+NvM_SetRam- Service for setting the RAM block status of a permanent RAM block
+NvM.h
+BlockStatus or the status of the explicit synchronization of a NVRAM block.
+Service to copy the data of the RAM block to its corresponding NV
+NvM_WriteBlock NvM.h
+block.
+()
+81 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,47 @@
+
+
+(inout) Value information is stored. On calling this function, this parameter shall
+LengthPtr contain the size of the buffer provided by publicValuePtr. When the
+request has finished, the actual length of the returned value shall be
+stored.
+Parameters public
+Contains the pointer to the data where the public value shall be stored.
+(out) ValuePtr
+E_OK: Request successful
+E_NOT_OK: Request failed
+Std_- CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+Return value Return- CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized
+Type source key element
+CRYPTO_E_KEY_NOT_VALID: Request failed, the key state of the key
+identified by cryIfKeyId is "invalid".
+Calculates the public value for the key exchange and stores the public key in the
+Description
+memory location pointed by the public value pointer.
+Available via Crypto.h
+()
+[SWS_Crypto_00103] ⌈ If the module is not yet initialized and if development error
+detection for the Crypto Driver is enabled: The function
+Crypto_KeyExchangeCalcPubVal shall report CRYPTO_E_UNINIT to the DET
+and return E_NOT_OK.
+()
+[SWS_Crypto_00104] ⌈ If the parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyExchangeCalcPubVal shall report CRYPTO_E_PARAM_HANDLE to the
+DET and return E_NOT_OK.
+()
+[SWS_Crypto_00105] ⌈ If the parameter publicValuePtr is a null pointer and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyExchangeCalcPubVal shall report CRYPTO_E_PARAM_POINTER to
+the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00106] ⌈ If the parameter pubValueLengthPtr is a null pointer and
+if development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyExchangeCalcPubVal shall report CRYPTO_E_PARAM_POINTER to
+the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00107] ⌈ If the value, which is pointed by pubValueLengthPtr is
+zero and if development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyExchangeCalcPubVal shall report CRYPTO_E_PARAM_VALUE to the
+DET and return E_NOT_OK.
+()
+73 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,42 @@
+
+
+8.3.4 Key Management Interface
+Note:
+If the actual key element to be modified is directly mapped to flash memory, there
+could be a bigger delay when calling the key management functions (synchronous
+operation)
+[SWS_Crypto_00145] ⌈ If the underlying crypto hardware does not allow execution
+of key management functions at the same time as processing a job, the key
+management functions shall wait while the current job is executed and start the
+processing of the key management function afterwards.
+()
+Note:
+It has to be ensured, that the jobs are processed fast enough to avoid that the key
+management function has to wait for a long time.
+It is also recommended to use CRYPTO_OPERATIONMODE_SINGLECALL for the
+jobs.
+8.3.4.1 Key Setting Interface
+8.3.4.1.1 Crypto_KeyElementSet
+[SWS_Crypto_00223] ⌈ The crypto driver shall only perform this operation if
+CryptoKeyElement/CryptoKeyElementWriteAccess is set to
+CRYPTO_WA_ALLOWED or CRYPTO_WA_ENCRYPTED.
+ ()
+Note: If the key element references a SHE-key, it is recommended to set
+CryptoKeyElementWriteAccess to CRYPTO_WA_ENCRYPTED. The key itself
+must be provided as SHE-keys in the format M1M2M3.
+[SWS_Crypto_91004]⌈
+Service Name Crypto_KeyElementSet
+Std_ReturnType Crypto_KeyElementSet (
+uint32 cryptoKeyId,
+uint32 keyElementId,
+Syntax
+const uint8* keyPtr,
+uint32 keyLength
+)
+Service ID
+0x04
+[hex]
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Parameters cryptoKeyId Holds the identifier of the key whose key element shall be set.
+55 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

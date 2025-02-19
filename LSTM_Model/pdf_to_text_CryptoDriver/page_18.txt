@@ -1,0 +1,53 @@
+
+
+The init value is the value, which is stored into the key element at the initialization of
+the crypto driver when the key element is empty. It is e.g. used for the key element
+with the id CRYPTO_KE_<Service>_ALGORITHM. This way, the key management
+functions can be configured. To provide e.g. different key exchange algorithms in one
+Crypto Driver, the vendor can pre-configure the following containers and set the init
+values of the CRYPTO_KE_<Service>_ALGORITHM key element to a vendor
+specific value:
+CryptoKeyElement_KeyExchange_Algorithm_RSA
+- ID = 11
+- Init value = 0x00
+- Size = 1
+- Read Access = RA_NONE
+- Write Access = WA_NONE
+CryptoKeyElement_KeyExchange_Algorithm_Ed25519
+- ID = 11
+- Init value = 0x01
+- Size = 1
+- Read Access = RA_NONE
+- Write Access = WA_NONE
+CryptoKeyType_KeyExchange_RSA
+- CryptoKeyElement_KeyExchange_Algorithm_RSA
+- CryptoKeyElement_KeyExchange_PartnerPubKey
+- CryptoKeyElement_KeyExchange_OwnPubKey
+- CryptoKeyElement_KeyExchange_Base
+- CryptoKeyElement_KeyExchange_PrivKey
+- CryptoKeyElement_KeyExchange_SharedValue
+CryptoKeyType_KeyExchange_Ed25519
+- CryptoKeyElement_KeyExchange_Algorithm_Ed25519
+- CryptoKeyElement_KeyExchange_PartnerPubKey
+- CryptoKeyElement_KeyExchange_OwnPubKey
+- CryptoKeyElement_KeyExchange_Base
+- CryptoKeyElement_KeyExchange_PrivKey
+- CryptoKeyElement_KeyExchange_SharedValue
+When a key exchange should be performed with a CryptoKey of type
+CryptoKeyType_KeyExchange_Ed25519, the Crypto Driver knows with the value
+stored in the key element CRYPTO_KE_KEYEXCHANGE_ALGORITHM that
+Ed25519 shall be used as underlying cryptographic primitive.
+If a key should be used in more than one primitive e.g. KeyExchange and AES-
+Encrypt-CBC, the CryptoKeyType could be extended by needed elements:
+CryptoKeyType_KeyExchange_Cipher_combined
+- CryptoKeyElement_KeyExchange_Algorithm_Ed25519
+- CryptoKeyElement_KeyExchange_PartnerPubKey
+- CryptoKeyElement_KeyExchange_OwnPubKey
+- CryptoKeyElement_KeyExchange_Base
+- CryptoKeyElement_KeyExchange_PrivKey
+- CryptoKeyElement_KeyExchange_SharedValue
+o ID = 1
+- CryptoKeyElement_Cipher_IV
+Note that CryptoKeyElement_KeyExchange_SharedValue has the id set to 1. When
+calling the encrypt service with a key of CryptoKeyType
+18 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

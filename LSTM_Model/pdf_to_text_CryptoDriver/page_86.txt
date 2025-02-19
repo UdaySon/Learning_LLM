@@ -1,0 +1,42 @@
+
+
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00038]
+Parameter Name CryptoMainFunctionPeriod
+Parent Container CryptoGeneral
+Specifies the period of main function Crypto_MainFunction in
+Description
+seconds.
+Multiplicity 0..1
+Type EcucFloatParamDef
+Range ]0 .. INF[
+Default value --
+Pre-compile time X All Variants
+Multiplicity Configuration
+Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration Class Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00007]
+Parameter Name CryptoVersionInfoApi
+Parent Container CryptoGeneral
+Pre-processor switch to enable and disable availability of the API Crypto_Get
+Description VersionInfo(). True: API Crypto_GetVersionInfo() is available False: API
+Crypto_GetVersionInfo() is not available.
+Multiplicity 1
+Type EcucBooleanParamDef
+Default value false
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+86 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

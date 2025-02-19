@@ -1,0 +1,13 @@
+1 Introduction and functional overview
+This specification specifies the functionality, API and the configuration of the
+AUTOSAR Basic Software module Crypto Driver.
+The Crypto Drivers are located in the Microcontroller Abstraction Layer, which is
+below the Crypto Hardware Abstraction Layer (Crypto Interface [4]) and the upper
+service layer (Crypto Service Manager [5]). The Crypto Driver is a driver for a specific
+device, that is only abstracting the features supported by the hardware.
+The Crypto Drivers allow defining of different Crypto Driver Objects (i.e. AES
+accelerator, SW component, etc), which shall be used for concurrent requests in
+different buffers. For each hardware object a priority-dependent job processing shall
+be supported. A crypto software solution (i.e. software-based CDD) can define
+interfaces identical to the Crypto Drivers for interacting with the upper layers, which
+shall provide an interface to the applications.

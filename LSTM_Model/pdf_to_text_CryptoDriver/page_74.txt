@@ -1,0 +1,52 @@
+
+
+[SWS_Crypto_00167] ⌈ If no errors are detected by Crypto Driver, the service
+Crypto_KeyExchangeCalcPubVal() calculates the public value of the current job
+for the key exchange.
+()
+[SWS_Crypto_00109] ⌈ The pointer publicValuePtr holds the memory location,
+where the data of the public value shall be stored. On calling this function,
+publicValueLengthPtr shall contain the size of the buffer provided by
+publicValuePtr. When the request has finished, the actual length of the returned
+value shall be stored.
+()
+8.3.4.7.2 Crypto_KeyExchangeCalcSecret
+[SWS_Crypto_91010]⌈
+Service
+Crypto_KeyExchangeCalcSecret
+Name
+Std_ReturnType Crypto_KeyExchangeCalcSecret (
+uint32 cryptoKeyId,
+Syntax const uint8* partnerPublicValuePtr,
+uint32 partnerPublicValueLength
+)
+Service ID
+0x0a
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant but not for the same cryptoKeyId
+Holds the identifier of the key which shall be used for the key
+cryptoKeyId
+exchange protocol.
+Parameters partnerPublic Holds the pointer to the memory location which contains the
+(in) ValuePtr partner's public value.
+partnerPublic
+Contains the length of the partner's public value in bytes.
+ValueLength
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is
+busy
+Return value Std_ReturnType
+CRYPTO_E_KEY_EMPTY: Request failed because of
+uninitialized source key element
+CRYPTO_E_KEY_NOT_VALID: Request failed, the key state
+of the key identified by cryIfKeyId is "invalid".
+Description Calculates the shared secret key for the key exchange with the key material of the
+74 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

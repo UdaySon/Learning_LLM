@@ -1,0 +1,50 @@
+
+
+Parameters
+NvmBuffer The address of the buffer where the data shall be written to
+(out)
+Std_Return- E_OK: callback function has been processed successfully any other:
+Return value
+Type callback function has been processed unsuccessfully
+This function is called by NVM to let the crypto driver copy the internal key element
+data to a mirror of the NVM ram block shortly before the data are written to NVM.
+Description The resulting function name shall be set to the container associated with the Nvm
+BlockDescriptor: {CryptoNvBlock/{CryptoNvBlockDescriptorRef} / NvMWriteRam
+BlockToNvCallback
+Available via Crypto_cfg.h
+(SRS_CryptoStack_00118)
+8.4.4 Crypto_NvBlock_Callback_<NvBlock>
+[SWS_Crypto_91026]⌈
+Service
+Crypto_<vi>_<ai>_NvBlock_Callback_<NvBlock>
+Name
+Std_ReturnType Crypto_<vi>_<ai>_NvBlock_Callback_<NvBlock> (
+NvM_BlockRequestType BlockRequest,
+Syntax
+NvM_RequestResultType JobResult
+)
+Service ID
+0x19
+[hex]
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Block The request type (read, write, ... etc.) of the previous processed
+Parameters Request block job
+(in)
+JobResult The request result of the previous processed block job.
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+Std_Return- E_OK: callback function has been processed successfully any
+Return value
+Type other: callback function has been processed unsuccessfully
+This function is called from NVM to notify the crypto driver that an asynchronous
+single block request has been finished.
+Description The resulting function name shall be set to the container associated with the Nvm
+BlockDescriptor: {CryptoNvBlock/{CryptoNvBlockDescriptorRef} /NvmSingleBlock
+Callback}/NvmSingleBlockCallbackFnc
+Available via Crypto_cfg.h
+79 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

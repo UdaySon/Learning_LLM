@@ -1,0 +1,44 @@
+
+
+It is unlikely to compose such formats back to the application by the crypto driver.
+Thus, such a key element might only be temporarily stored and may not persisted in
+"composed" format (M1M2M3), e.g. to retrieve that after reset.
+[SWS_Crypto_00184]⌈ Asymmetric key material with identification is specified in
+accordance to RFC5958 in ASN.1 format. The key material with the format specifier
+CRYPTO_KE_FORMAT_BIN_IDENT_PRIVATEKEY_ PKCS8 needs to follow this
+format specification:
+OneAsymmetricKey ::= SEQUENCE {
+version Version,
+KeyAlgorithm KeyAlgorithmIdentifier,
+keyMaterial KeyMaterial,
+attributes* [0] Attributes OPTIONAL,
+...,
+[[2: publicKey* [1] PublicKey OPTIONAL ]],
+...
+}
+* The optional values for key attributes and the PublicKey are currently not used
+within the crypto driver and is listed here just for compatibility reason to RFC5958. A
+driver shall tolerate the provision of this information but doesn’t need to evaluate its
+contents.
+The elements have the following meaning:
+Version ::= INTEGER { v1(0), v2(1) } (v1, ..., v2)
+KeyAlgorithmIdentifier ::= AlgorithmIdentifier
+{ PUBLIC-KEY,
+{ PrivateKeyAlgorithms } }
+KeyMaterial ::= OCTET STRING
+-- Content varies based on the type of the key and is specified by its
+AlgorithmIdentifier.
+-- The KeyAlgorithmIdentifier defines which format specifier for KeyMaterial
+shall be applied.
+AlgorithmIdentifier: A value that identifies the format by its object identifier (OID).
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00254]⌈ Public key material with identification is specified in
+accordance to RFC5280, section 4.1. The key material with the format specifier
+CRYPTO_KE_FORMAT_BIN_IDENT_PUBLICKEY needs to follow this format
+specification:
+SubjectPublicKeyInfo ::= SEQUENCE
+{ algorithm AlgorithmIdentifier,
+subjectPublicKey BIT STRING }
+The elements have the following meaning:
+AlgorithmIdentifier:
+28 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

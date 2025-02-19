@@ -1,0 +1,49 @@
+
+
+Return value void --
+Description Returns the version information of this module.
+Available via Crypto.h
+(SRS_BSW_00407)
+[SWS_Crypto_00047] ⌈ If the parameter versioninfo is a null pointer and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_GetVersionInfo shall report CRYPTO_E_PARAM_POINTER to the DET.
+()
+8.3.2 Job Processing Interface
+8.3.2.1 Crypto_ProcessJob
+[SWS_Crypto_91003]⌈
+Service Name Crypto_ProcessJob
+Std_ReturnType Crypto_ProcessJob (
+uint32 objectId,
+Syntax
+Crypto_JobType* job
+)
+Service ID
+0x03
+[hex]
+Sync/Async Depends on configuration
+Reentrancy Reentrant
+Parameters
+objectId Holds the identifier of the Crypto Driver Object.
+(in)
+Parameters Pointer to the configuration of the job. Contains structures with job
+job
+(inout) and primitive relevant information but also pointer to result buffers.
+Parameters
+None
+(out)
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypro Driver Object is busy or
+queue is full
+CRYPTO_E_KEY_NOT_VALID: Request failed, the key is not valid
+CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element
+Std_- has the wrong size
+Return value Return- CRYPTO_E_KEY_READ_FAIL: The service request failed, because
+Type key element extraction is not allowed
+CRYPTO_E_KEY_WRITE_FAIL: The service request failed because
+the writing access failed
+CRYPTO_E_KEY_NOT_AVAILABLE: Request failed, at least one
+required key element is not available.
+CRYPTO_E_ENTROPY_EXHAUSTED: Request failed, the entropy
+is exhausted
+46 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

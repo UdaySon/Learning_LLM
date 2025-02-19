@@ -1,0 +1,50 @@
+
+
+[SWS_Crypto_00204] ⌈ If job->jobRedirectionInfoRef is not a NULLPTR and
+the configuration bit for the outputRedirection and/or secondaryoutputRedirection is
+set within job-> jobRedirectionInfoRef->redirectionConfig, then the
+corresponding key element buffer located by job-> jobRedirectionInfoRef-
+>outputKeyId + job-> jobRedirectionInfoRef->outputKeyElementId
+and/or job-> jobRedirectionInfoRef->secondaryOutputKeyId + job->
+jobRedirectionInfoRef->secondaryOutputKeyElementId shall be used
+as output. The length of the respective key element shall be set according to the
+length of the output.
+()
+[SWS_Crypto_00141] ⌈ If the random generator service is chosen and the
+corresponding entropy, the function shall return CRYPTO_E_ENTROPY_EXHAUSTED.
+The function Crypto_ProcessJob shall additionally report the runtime error
+CRYPTO_E_RE_ENTROPY_EXHAUSTED.
+()
+8.3.3 Job Cancellation Interface
+8.3.3.1 Crypto_CancelJob
+[SWS_Crypto_00122]⌈
+Service Name Crypto_CancelJob
+Std_ReturnType Crypto_CancelJob (
+uint32 objectId,
+Syntax
+Crypto_JobType* job
+)
+Service ID
+0x0e
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant but not for same Crypto Driver Object
+Parameters
+objectId Holds the identifier of the Crypto Driver Object.
+(in)
+Parameters Pointer to the configuration of the job. Contains structures with job
+job
+(inout) and primitive relevant information.
+Parameters
+None
+(out)
+E_OK: Request successful, job has been removed.
+Std_- E_NOT_OK: Request failed, job couldn't be removed.
+Return value
+ReturnType CRYPTO_E_JOB_CANCELED: The job has been cancelled but is
+still processed. No results will be returned to the application.
+This interface removes the provided job from the queue and cancels the
+Description
+processing of the job if possible.
+Available via Crypto.h
+53 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

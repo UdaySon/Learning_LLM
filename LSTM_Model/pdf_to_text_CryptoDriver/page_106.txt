@@ -1,0 +1,15 @@
+
+
+Link time --
+Post-build time --
+Configuration Parameters
+Included Containers
+Container Name Multiplicity Scope / Dependency
+CryptoPrimitive 0..* Configuration of a CryptoPrimitive
+CryptoPrimitive- Container of custom algorithm family values. The container
+AlgorithmFamily- 0..* name serves as a symbolic name for the identifier of the
+Custom custom algorithm family type.
+CryptoPrimitive- Container of custom algorithm family values. The container
+AlgorithmMode- 0..* name serves as a symbolic name for the identifier of the
+Custom custom algorithm family type.
+106 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

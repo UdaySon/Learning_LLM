@@ -1,0 +1,50 @@
+
+
+Parameters
+None
+(out)
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+CRYPTO_E_KEY_NOT_AVAILABLE: Request failed, the
+requested key element of at least one requested key is not
+available
+CRYPTO_E_KEY_READ_FAIL: Request failed, not allowed to
+Return value Std_ReturnType
+extract key element
+CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to
+write key element
+CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key
+element sizes are not compatible
+CRYPTO_E_KEY_EMPTY: Request failed because of
+uninitialized source key element
+Copies a key element to another key element in the same crypto driver. The key
+ElementSourceOffset and keyElementCopyLength allows to copy just a part of the
+source key element into the destination. The offset of the target key is also specified
+Description
+with this function.
+Note: If the actual key element is directly mapped to flash memory, there could be a
+bigger delay when calling this function (synchronous operation).
+Available via Crypto.h
+()
+[SWS_Crypto_00205] ⌈ If the Crypto Driver is not yet initialized and if development
+error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementCopyPartial shall report CRYPTO_E_UNINIT to the DET
+and return E_NOT_OK.
+()
+[SWS_Crypto_00206] ⌈ If cryptoKeyId, keyElementId ,
+targetKeyElementId or targetCryptoKeyId is out of range and if development
+error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementCopyPartial shall report CRYPTO_E_PARAM_HANDLE to the
+DET and return E_NOT_OK.
+()
+[SWS_Crypto_00207] ⌈ If the total length of the key element specified with
+keyElementId of the key referenced by cryptoKeyId is smaller than
+keyElementSourceOffset + keyElementCopyLength
+Crypto_KeyElementCopyPartial shall return
+CRYPTO_E_KEY_SIZE_MISMATCH.
+()
+[SWS_Crypto_00208] ⌈ If the maximum available buffer of the key element specified
+with targetKeyElementId of the key referenced by targetCryptoKeyId is
+smaller than keyElementTargetOffset + keyElementCopyLength, the
+65 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

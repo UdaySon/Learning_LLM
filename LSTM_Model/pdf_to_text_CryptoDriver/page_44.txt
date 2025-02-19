@@ -1,0 +1,32 @@
+
+
+Furthermore, it should be noted, that the Crypto Stack API uses the key element
+index definition from the CSM module (see SWS_Csm_00122).
+8.2.2 Crypto_ConfigType
+[SWS_Crypto_91016]⌈
+Name Crypto_ConfigType
+Kind Structure
+implementation specific
+Type --
+Elements
+The content of the configuration data structure is implementation
+Comment
+specific.
+Description Configuration data structure of CryIf module
+Available
+Crypto.h
+via
+(SRS_BSW_00414)
+8.3 Function definitions
+This is a list of functions provided for upper layer modules.
+8.3.1 General API
+8.3.1.1 Crypto_Init
+[SWS_Crypto_91000]⌈
+Service Name Crypto_Init
+void Crypto_Init (
+Syntax const Crypto_ConfigType* configPtr
+)
+Service ID [hex] 0x00
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+44 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

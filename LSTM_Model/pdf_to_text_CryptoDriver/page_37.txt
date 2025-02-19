@@ -1,0 +1,42 @@
+
+
+Csm_CustomService KeyM_Service- KeyM_VerifyC KeyM_VerifyC KeyM_Verify-
+Certificate- ertificates ertificate CertificateChain
+ByCertId
+uint32 JobId JobId of the referenced custom CSM job from the given certificate
+configuration
+Crypto_Operation- empty* empty* empty* empty*
+ModeType mode
+uint32 targetKeyId uint8 SvcId** uint8 SvcId** uint8 SvcId** uint8 SvcId**
+const uint8* uint8 Service*** uint16 empty* uint8
+inputPtr CertUpperId NumberOfCertifi
+cates
+uint32 inputLength 1 2 0 1
+const uint8 * const unit8 * empty* empty* KeyM_CertDataT
+secondaryInputPtr RequestData ype[]
+certChainData
+uint32 uint32 empty* empty* NumberOfCertifi
+secondaryInput- RequestDataLe cates *
+Length ngth sizeof(KeyM_Cert
+DataType)
+const uint8* empty* empty* empty* empty*
+tertiaryInputPtr
+uint32 empty* empty* empty* empty*
+tertiaryInputLength
+uint8* outputPtr uint8 empty* empty* empty*
+ResponseData
+uint32* unit32 empty* empty* empty*
+outputLengthPtr ResponseDataL
+ength
+uint8* <specific return value for that custom service>
+secondaryOutputPtr
+uint32* < sizeof(Std_ReturnType)>
+secondaryOutput-
+LengthPtr
+Crypto_VerifyResult empty*
+Type* verifyPtr
+* “empty”: it’s up to the vendor how to set the value of the parameter, but will not be
+used
+** “SvcId”: is Service ID of the original KeyM API function; casted to uint32
+*** “Service” is the parameter KeyM_ServiceCertificateType Service from the caller
+37 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,37 @@
+
+
+Parameters (in) configPtr Pointer to a selected configuration structure
+Parameters (inout) None
+Parameters (out) None
+Return value void --
+Description Initializes the Crypto Driver.
+Available via Crypto.h
+(SRS_BSW_00101, SRS_BSW_00358, SRS_BSW_00414)
+[SWS_Crypto_00215] ⌈ The Configuration pointer configPtr shall always have a
+null pointer value.
+ (SWS_BSW_00050)
+The Configuration pointer configPtr is currently not used and shall therefore be set
+to null pointer value.
+[SWS_Crypto_00198]⌈
+If during initialization of the Crypto Driver the value of a persistent key could not be
+loaded, the Crypto Driver shall set the state of the corresponding key to invalid.
+()
+Note: After initialization of the Crypto Driver and before the application starts, the
+application should consider to check the state of the configured keys and to
+implement an appropriate handling if the key's state is invalid.
+[SWS_Crypto_00045] ⌈ If the initialization of the Crypto Driver fails, the Crypto shall
+report CRYPTO_E_INIT_FAILED to the DET.
+()
+8.3.1.2 Crypto_GetVersionInfo
+[SWS_Crypto_91001]⌈
+Service Name Crypto_GetVersionInfo
+void Crypto_GetVersionInfo (
+Syntax Std_VersionInfoType* versioninfo
+)
+Service ID [hex] 0x01
+Sync/Async Synchronous
+Reentrancy Reentrant
+Parameters (in) versioninfo Pointer to where to store the version information of this module.
+Parameters (inout) None
+Parameters (out) None
+45 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

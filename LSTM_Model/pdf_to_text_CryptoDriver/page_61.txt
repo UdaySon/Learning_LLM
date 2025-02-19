@@ -1,0 +1,44 @@
+
+
+[SWS_Crypto_00090] ⌈ If the value, which is pointed by resultLengthPtr is zero
+and if development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementGet shall report CRYPTO_E_PARAM_VALUE to the DET and
+return E_NOT_OK.
+()
+If no errors are detected by Crypto Driver, the service Crypto_KeyElementGet()
+retrieves the value of the key element and store it in the buffer, which is pointed by
+the resultPtr.
+[SWS_Crypto_00092] ⌈ The pointer resultPtr holds the memory location, where
+the data of the key element shall be stored. On calling this function,
+resultLengthPtr shall contain the size of the buffer provided by resultPtr.
+When the request has finished, the actual length of the returned value shall be
+stored.
+()
+8.3.4.3 Key Status Interface
+8.3.4.3.1 Crypto_KeyGetStatus
+[SWS_Crypto_91019]⌈
+Service Name Crypto_KeyGetStatus
+Std_ReturnType Crypto_KeyGetStatus (
+uint32 cryptoKeyId,
+Syntax
+Crypto_KeyStatusType* keyStatusPtr
+)
+Service ID [hex] 0x14
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Holds the identifier of the key for which the key state shall be
+Parameters (in) cryptoKeyId
+returned.
+Parameters
+None
+(inout)
+Contains the pointer to the data where the status of the key
+Parameters (out) keyStatusPtr
+shall be stored.
+Std_Return- E_OK: Request successful
+Return value
+Type E_NOT_OK: Request failed
+Description Returns the key state of the key identified by cryptoKeyId.
+Available via Crypto.h
+()
+61 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

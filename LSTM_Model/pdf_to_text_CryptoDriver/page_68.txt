@@ -1,0 +1,47 @@
+
+
+)
+Service ID
+0x11
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant but not for the same cryptoKeyId
+Parameters cryptoKey Holds the identifier of the key whose available element ids shall be
+(in) Id exported.
+Holds a pointer to the memory location in which the number of key
+keyElement elements in the given key is stored. On calling this function, this
+Parameters
+IdsLength parameter shall contain the size of the buffer provided by keyElement
+(inout)
+Ptr IdsPtr. When the request has finished, the actual number of key
+elements shall be stored.
+Parameters keyElement Contains the pointer to the array where the ids of the key elements
+(out) IdsPtr shall be stored.
+E_OK: Request successful
+Std_-
+Return value E_NOT_OK: Request failed
+ReturnType
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+Description Used to retrieve information which key elements are available in a given key.
+Available via Crypto.h
+()
+[SWS_Crypto_00161] ⌈ If the Crypto Driver is not yet initialized and if development
+error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementIdsGet shall report CRYPTO_E_UNINIT to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00162] ⌈ If cryptoKeyId is out of range and if development error
+detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementIdsGet shall report CRYPTO_E_PARAM_HANDLE to the DET
+and return E_NOT_OK.
+()
+If no errors are detected by the Crypto Driver, the function stores all ids of the key
+elements available in the key identified by cryptoKeyId to an array provided by
+keyElementIdsPtr. It also stores the number of elements to the value, which is
+pointed by keyElementIdsLengthPtr.
+Note:
+This function is needed by the CRYIF when a whole key should be copied from one
+Crypto Driver to another Crypto Driver by the CRYIF.
+8.3.4.5 Key Generation Interface
+8.3.4.5.1 Crypto_RandomSeed
+68 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

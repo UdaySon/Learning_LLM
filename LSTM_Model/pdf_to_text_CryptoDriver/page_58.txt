@@ -1,0 +1,42 @@
+
+
+[SWS_Crypto_00197]⌈ If parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeySetValid() shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK.
+()
+If no errors are detected by Crypto Driver, the service Crypto_KeySetValid()
+sets the key cryptoKeyId to “valid”.
+8.3.4.1.3 Crypto_KeySetInvalid
+[SWS_Crypto_91020]⌈
+Service Name Crypto_KeySetInvalid
+Std_ReturnType Crypto_KeySetInvalid (
+Syntax uint32 cryptoKeyId
+)
+Service ID [hex] 0x15
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Holds the identifier of the key for which the status shall be set
+Parameters (in) cryptoKeyId
+to invalid.
+Parameters
+None
+(inout)
+Parameters (out) None
+E_OK: Request successful
+Std_Return- E_NOT_OK: Request failed
+Return value
+Type CRYPTO_E_BUSY: Request failed, Crypro Driver Object is
+busy
+Description Sets invalid for the status of the key identified by cryptoKeyId.
+Available via Crypto.h
+()
+[SWS_Crypto_00236] ⌈ If the module is not yet initialized and development error
+detection for the Crypto Driver is enabled, the function Crypto_KeySetInvalid()
+shall report CRYPTO_E_UNINIT to the DET.
+()
+[SWS_Crypto_00237] ⌈ If parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeySetInvalid() shall report CRYPTO_E_PARAM_HANDLE to the DET.
+()
+58 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

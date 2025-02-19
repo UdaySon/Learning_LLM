@@ -1,0 +1,40 @@
+
+
+Crypto_KeyElementSet shall report CRYPTO_E_PARAM_POINTER to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00079] ⌈ If keyLength is zero and if development error detection for
+the Crypto Driver is enabled, the function Crypto_KeyElementSet shall report
+CRYPTO_E_PARAM_VALUE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00146] ⌈ If keyLength is smaller than the size of the key element,
+and the key element is not configured to allow partial access, the function
+Crypto_KeyElementSet shall return CRYPTO_E_KEY_SIZE_MISMATCH.
+()
+8.3.4.1.2 Crypto_KeySetValid
+[SWS_Crypto_91014]⌈
+Service Name Crypto_KeySetValid
+Std_ReturnType Crypto_KeySetValid (
+Syntax uint32 cryptoKeyId
+)
+Service ID [hex] 0x05
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Parameters (in) cryptoKeyId Holds the identifier of the key which shall be set to valid.
+Parameters
+None
+(inout)
+Parameters (out) None
+E_OK: Request successful
+Std_Return- E_NOT_OK: Request failed
+Return value
+Type CRYPTO_E_BUSY: Request failed, Crypro Driver Object is
+busy
+Description Sets the key state of the key identified by cryptoKeyId to valid.
+Available via Crypto.h
+()
+[SWS_Crypto_00196]⌈ If the module is not yet initialized and development error
+detection for the Crypto Driver is enabled, the function Crypto_KeySetValid()
+shall report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+57 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

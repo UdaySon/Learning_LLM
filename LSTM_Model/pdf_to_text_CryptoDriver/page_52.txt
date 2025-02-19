@@ -1,0 +1,42 @@
+
+
+If no errors are detected by the Crypto Driver, the Crypto Driver processes the crypto
+service, configured in job, with the underlying hardware or software solutions.
+[SWS_Crypto_00134] ⌈ If the crypto primitive requires input data, its memory
+location is referred by the pointer job->jobPrimitiveInput.inputPtr.
+On calling Crypto_ProcessJob, the length of this data is stored in job-
+>jobPrimitiveInput.inputLength.
+This applies analogously to job->jobPrimitiveInput.secondaryInputPtr
+and job->jobPrimitiveInput.secondaryInputLength respectively job-
+>jobPrimitiveInput.tertiaryinputPtr and
+job->jobPrimitiveInput.tertiaryInputLength, if they shall be used for the
+chosen crypto primitive.
+If the input is redirected to a key element, the input buffer of the respective key
+element has to be used.
+()
+[SWS_Crypto_00203] ⌈ If job->jobRedirectionInfoRef is not a NULLPTR and
+the configuration bit for the inputRedirection, secondaryInputRedirection and/or
+tertiaryInputRedirection is set within job-> jobRedirectionInfoRef-
+>redirectionConfig, then the corresponding key element buffer located by job-
+> jobRedirectionInfoRef->inputKeyId+ job->
+jobRedirectionInfoRef->inputKeyElementId, job->
+jobRedirectionInfoRef->secondaryInputKeyId+ job->
+jobRedirectionInfoRef->secondaryInputKeyElementId, and/or
+jobRedirectionInfoRef->tertiaryInputKeyId+ job->
+jobRedirectionInfoRef->tertiaryInputKeyElementId and its length shall
+be used.
+Any data provided by the input parameter of the function interface shall be ignored.
+()
+[SWS_Crypto_00135] ⌈ If the crypto primitive requires a buffer for the result, its
+memory location is referred by the pointer job-
+>jobPrimitiveInput.outputPtr. On calling this function, job-
+>jobPrimitiveInput. outputLengthPtr shall contain the size of the
+associated buffer. When the request has finished, the actual length of the returned
+value shall be stored.
+This applies analogously to job->jobPrimitiveInput.secondaryOutputPtr
+and job->jobPrimitiveInput.secondaryOutputLengthPtr, if they shall be
+used for the chosen crypto primitive.
+If the output is redirected to a key element, the output buffer of the respective key
+element has to be used instead.
+()
+52 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

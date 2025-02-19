@@ -1,0 +1,36 @@
+
+
+The number of bytes for the key depends on the implementation of the curve.
+Examples:
+NIST curve P(256) public key = X(32) | Y(32)
+NIST curve P(192) public key = X(24) | Y(24)
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00191]⌈ Private keys for NIST and Brainpool ECC curves are
+provided with their X and Y coordinates and an additional scalar:
+ECC Private Key = Point X | Point Y | Scalar.
+The points and the scalar are stored in little endian format.
+Example:
+Brainpool curve P(256) = X(32) | Y(32) | SCALAR(32)
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00192]⌈ The public key information for ED25519 contains a point on
+the curve:
+ED25519 Public Key = Point X
+The point is stored in little endian format.
+Example:
+ED25519 Public Key = X(32).
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00193]⌈ The private key information for ED25519 contains a random
+constant and the point X on the curve:
+ED25519 Private Key = Seed K | Point X
+The point and the seed are stored in little endian format.
+Example:
+ED25519 Private Key = Seed K(32) | X(32).
+(SRS_CryptoStack_00008)
+7.2.5.3 Definition of SHE key material
+[SWS_Crypto_00255]⌈ If a crypto key element is used as a secret key of a SHE
+hardware, then the configuration of CryptoKeyFormat/CryptoKeyElementFormat shall
+be set to CRYPTO_KE_FORMAT_BIN_SHEKEY. This indicates that the key element
+shall be presented in M1M2M3 format as specified in [7]. The function
+Crypto_KeyElementSet() is used to load the key into the SHE hardware (not
+directly on a call to this function but rather through key-set-valid operation).
+31 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

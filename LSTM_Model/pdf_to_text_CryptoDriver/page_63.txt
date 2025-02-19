@@ -1,0 +1,48 @@
+
+
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+CRYPTO_E_KEY_NOT_AVAILABLE: Request failed, the
+requested key element of at least one requested key is not
+available
+Std_Return- CRYPTO_E_KEY_READ_FAIL: Request failed, not allowed to
+Return value
+Type extract key element
+CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to
+write key element
+CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element
+sizes are not compatible
+CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized
+source key element
+Copies a key element to another key element in the same crypto driver. Note: If the
+Description actual key element is directly mapped to flash memory, there could be a bigger
+delay when calling this function (synchronous operation)
+Available via Crypto.h
+()
+[SWS_Crypto_00149] ⌈ If the Crypto Driver is not yet initialized and if development
+error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementCopy shall report CRYPTO_E_UNINIT to the DET and return
+E_NOT_OK.
+()
+[SWS_Crypto_00150] ⌈ If cryptoKeyId is out of range and if development error
+detection for the Crypto Driver is enabled, the function Crypto_KeyElementCopy
+shall report CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00151] ⌈ If targetCryptoKeyId is out of range and if development
+error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementCopy shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00152] ⌈ If parameter keyElementId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementCopy shall report CRYPTO_E_PARAM_HANDLE to the DET
+and return E_NOT_OK.
+()
+63 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

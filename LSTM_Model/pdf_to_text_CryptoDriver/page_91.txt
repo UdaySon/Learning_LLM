@@ -1,0 +1,49 @@
+
+
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00045]
+Parameter Name CryptoDefaultRandomKeyRef
+Parent Container CryptoDriverObject
+This is a reference to the CryptoKey that is used by the CryptoDefault
+RandomPrimitiveRef. The key contains key elements that are necessary to
+Description seed the random number generator.
+This element shall only be set if the primitive referenced by CryptoDefault
+RandomPrimitiveRef requires a seed value.
+Multiplicity 0..1
+Type Reference to CryptoKey
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00044]
+Parameter Name CryptoDefaultRandomPrimitiveRef
+Parent
+CryptoDriverObject
+Container
+This is a reference to a primitive that configures a default random number
+generator. If a crypto driver object needs to perform a crypto primitive that
+requires a random number generator, but the configuration of this primitive does
+not provide parameter for a random number generator, then this default random
+Description number generator shall be used (i.e. the elements of algorithm family, secondary
+algorithm family and algorithm mode do not provide this information).
+Example: The crypto driver shall generate a signature based on elliptic curve but
+the primitive for signature generation lacks information about a random number
+generator.
+Multiplicity 0..1
+91 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

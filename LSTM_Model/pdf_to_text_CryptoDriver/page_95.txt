@@ -1,0 +1,40 @@
+
+
+Post-build time --
+Configuration Parameters
+SWS Item [ECUC_Crypto_00012]
+Parameter Name CryptoKeyId
+Parent Container CryptoKey
+Description Identifier of the CRYPTO Key
+Multiplicity 1
+EcucIntegerParamDef (Symbolic Name generated for this
+Type
+parameter)
+Range 0 .. 4294967295
+Default value --
+Post-Build Variant Multiplicity false
+Post-Build Variant Value false
+Pre-compile time X All Variants
+Multiplicity Configuration
+Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration Class Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00059]
+Parameter Name CryptoKeyNvBlockRef
+Parent Container CryptoKey
+Reference to the NV block where the persistent key elements of this
+Description
+key shall be stored to.
+Multiplicity 0..1
+Type Reference to CryptoNvBlock
+Pre-compile time X All Variants
+Multiplicity Configuration
+Link time --
+Class
+Post-build time --
+Value Configuration Class Pre-compile time X All Variants
+95 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

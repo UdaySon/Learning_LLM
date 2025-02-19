@@ -1,0 +1,39 @@
+
+
+multiple items can be supported. Otherwise, further CryptoPrimitive(s) for this
+CryptoPrimitiveService must be defined.
+()
+Example:
+A crypto primitive service ENCRYPT may support AES and 3DES with mode ECB
+and CBC in all permutations (AES-CBC, AES-ECB, 3DES-CBC and 3DES-ECB). But
+a crypto primitive service ENCRYPT, with support of family items for AES and RSA
+and mode CBC are not valid, because RSA-CBC is not reasonably supported. In this
+case, a new CryptoPrimitive for RSA shall be defined.
+7.1.2 Cryptographic capabilities
+The capabilities of a Crypto Driver can be divided in the two main topics: key storage
+and supported algorithms. The supported algorithms can be pre-configured by
+creating a new CryptoPrimitive container (e.g. MacGenerate). In this container the
+vendor can now specify that the Crypto Driver is for example only capable of doing a
+CMAC. In this case, an example configuration would be:
+CryptoPrimitiveAlgorithmFamily = CRYPTO_ALGOFAM_AES
+CryptoPrimitiveAlgorithmMode = CRYPTO_ALGOMODE_CMAC
+CryptoPrimitiveAlgorithmSecondaryFamily =
+CRYPTO_ALGOMODE_NOT_SET
+CryptoPrimitiveService = MacGenerate
+The primitive MacGenerate can then be referenced by the Crypto Driver Object to
+show, that it is capable of doing a CMAC. If no other primitives a pre-configured, the
+Crypto Driver Object is not able to perform e.g. an AES encryption.
+If all primitives are independent from each other, a vendor would pre-configure one
+Crypto Driver Object for each primitive. Otherwise, there would be one Crypto Driver
+Object, which would reference all primitives.
+7.1.3 Available Keys
+The keys, which are provided by the Crypto Driver can also be pre-configured. A
+CryptoKey container references a specific CryptoKeyType. The CryptoKeyType
+provides the information which key elements are contained in a CryptoKey
+referencing this CryptoKeyType.
+The vendor also pre-configures the key elements to define:
+- read/write access
+- the maximum size of the element
+- if the element can be read/written with data smaller than the maximum size
+- the init value after startup if the element is not already initialized
+17 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

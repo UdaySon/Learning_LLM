@@ -1,0 +1,42 @@
+
+
+ If a key element is used for output re-direction, the key element
+must have access rights CRYPTO_WA_INTERNAL_COPY or lower.
+ Any key element that is used to generate keys using Key Exchange
+operation shall have access rights of at least
+CRYPTO_RA_INTERNAL_COPY or lower.
+ For Key Derivation, the source key shall have access rights of at
+least CRYPTO_RA_INTERNAL_COPY or lower. The destination key shall
+have at least the access right of its source key or lower2).
+ ()
+1) Rationale: This is to avoid using a key element as input and (another for) output for
+encrypt and successively decrypt that key which would allow to extract the secret key
+in plaintext at the end.
+2) This is to avoid to deduce the source key when using weak key derivation
+algorithms.
+[SWS_Crypto_00037] ⌈ The index of the different key elements from the different
+crypto services are defined as in imported types table SWS_Csm_01022.
+()
+[SWS_Crypto_00038] ⌈ A key has a state which is either “valid” or “invalid”.
+()
+[SWS_Crypto_00039] ⌈ If a key is in the state “invalid”, crypto services which make
+use of that key, shall return with CRYPTO_E_KEY_NOT_VALID.
+()
+Note: In case of error observed during Crypto_KeyElementSet() API call, the status
+of the key element needs to be considered as unknown.
+If a key (or key element) is currently in use by a crypto service, the state of the key
+has to be “valid”. When the KeyElementSet() is called, the key state is set to
+“invalid”. So, the job which is currently running will probably work with an inconsistent
+key. It is up to the application to only change key, if currently no primitive works with
+that key (element).
+Note: The mapping of keys and key elements to SHE hardware functionality is
+possible without being subject to any restrictions except that read and write access
+through key management interfaces must be performed in encrypted form due to
+hardware constrains. To provide an environment for legacy software the single key
+used by the hardware can be placed in a key element referenced by several keys.
+Every key has also a unique reference to a key element containing an identifier. The
+driver implemented according to this specification can hence wrap existing SHE
+hard- and software and pass the data from the key elements to the existing SHE
+driver. In this use case one key element could contain a counter that could be read
+and written by the driver as well as the application. This counter could be used to
+26 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

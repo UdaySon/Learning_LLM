@@ -1,0 +1,48 @@
+
+
+Service Name Crypto_<vi>_<ai>_NvBlock_ReadFrom_<NvBlock>
+Std_ReturnType Crypto_<vi>_<ai>_NvBlock_ReadFrom_<NvBlock> (
+Syntax const void* NvmBuffer
+)
+Service ID
+0x17
+[hex]
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Parameters
+NvmBuffer The address of the buffer where the data can be read from.
+(in)
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+Std_Return- E_OK: callback function has been processed successfully any other:
+Return value
+Type callback function has been processed unsuccessfully
+This function is called by NVM to let the crypto driver copy the key data from the
+mirror of the NVM ram block to an internal RAM buffer of the crypto driver.
+Description The resulting function name shall be set to the container associated with the Nvm
+BlockDescriptor: {CryptoNvBlock/{CryptoNvBlockDescriptorRef} / NvMReadRam
+BlockFromNvCallback
+Available via Crypto_cfg.h
+(SRS_CryptoStack_00117, SRS_CryptoStack_00118)
+8.4.3 Crypto_NvBlock_WriteTo_<NvBlock>
+[SWS_Crypto_91025]⌈
+Service Name Crypto_<vi>_<ai>_NvBlock_WriteTo_<NvBlock>
+Std_ReturnType Crypto_<vi>_<ai>_NvBlock_WriteTo_<NvBlock> (
+Syntax void* NvmBuffer
+)
+Service ID
+0x18
+[hex]
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Parameters
+None
+(in)
+Parameters
+None
+(inout)
+78 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

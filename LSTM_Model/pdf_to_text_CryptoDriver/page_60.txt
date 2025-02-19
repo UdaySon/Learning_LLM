@@ -1,0 +1,46 @@
+
+
+Parameters
+resultPtr Holds the pointer of the buffer for the returned key element
+(out)
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+Std_- CRYPTO_E_KEY_NOT_AVAILABLE: Request failed, the requested key
+Return value Return- element of the requested key is not available
+Type CRYPTO_E_KEY_READ_FAIL: Request failed because read access
+was denied
+CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized
+source key element
+This interface shall be used to get a key element of the key identified by the crypto
+KeyId and store the key element in the memory location pointed by the result pointer.
+Description
+Note: If the actual key element is directly mapped to flash memory, there could be a
+bigger delay when calling this function (synchronous operation).
+Available via Crypto.h
+()
+[SWS_Crypto_00085] ⌈ If the module is not yet initialized and if development error
+detection for the Crypto Driver is enabled, the function Crypto_KeyElementGet
+shall report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00086] ⌈ If the parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementGet shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00087] ⌈ If the parameter keyElementId is not contained in the
+respective key type and if development error detection for the Crypto Driver is
+enabled, the function Crypto_KeyElementGet shall report
+CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00088] ⌈ If the parameter resultPtr is a null pointer and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementGet shall report CRYPTO_E_PARAM_POINTER the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00089] ⌈ If the parameter resultLengthPtr is a null pointer and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementGet shall report CRYPTO_E_PARAM_POINTER to the DET and
+return E_NOT_OK.
+()
+60 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

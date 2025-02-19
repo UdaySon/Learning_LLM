@@ -1,0 +1,31 @@
+
+
+The picture below shows the usage of the crypto driver (on HSM). Service requests
+from the application go to the standardized KeyM interfaces and if a crypto profile for
+custom processing defines the handling on HSM the crypto driver transfers the
+execution onto the HSM.
+<KeyM_to_HSM_image>
+Mapping table for Csm_CustomSync:
+service Id 0x0F 0x12 0x1B 0x1C 0x0A 0x0B
+processing sync
+type
+Return type Std_ReturnType
+Csm_CustomS KeyM_Cer KeyM_Cer KeyM_Cer KeyM_Certi KeyM_Set KeyM_Get
+ync tElementG tGetStatus tificateEle ficateEleme Certificate Certificate
+et mentGetB ntGetCount
+yIndex
+uint32 0x1580000 0x1580001 0x1580001 0x1580001C 0x1580000 0x1580000
+dispatchId*** F 2 B A B
+*
+uint32 keyId keyId of the referenced key used in the custom CSM job from the given
+certificate configuration
+uint32 mapped empty* mapped mapped empty* empty*
+keyElementId keyId from keyId from keyId from
+CertEleme CertEleme CertElement
+ntId ntId Id
+uint32 empty* empty* uint32 empty* empty* empty*
+targetKeyId index
+uint32 empty* empty* empty* empty* empty* empty*
+targetKeyEle
+mentId
+38 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

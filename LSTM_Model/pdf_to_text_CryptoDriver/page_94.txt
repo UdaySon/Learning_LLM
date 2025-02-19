@@ -1,0 +1,12 @@
+
+C ry p to K e y s:
+
+10.1.6 CryptoKey
+SWS Item [ECUC_Crypto_00011]
+Container Name CryptoKey
+Parent Container CryptoKeys
+Description Configuration of a CryptoKey
+Post-Build Variant Multiplicity false
+Pre-compile time X All Variants
+Multiplicity Configuration Class
+Link time --

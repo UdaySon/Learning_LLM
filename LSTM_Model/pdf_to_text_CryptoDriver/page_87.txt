@@ -1,0 +1,46 @@
+
+
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00042]
+Parameter Name CryptoEcucPartitionRef
+Parent Container CryptoGeneral
+Maps the Crypto driver to zero or multiple ECUC partitions to make the
+Description modules API available in this partition. The module will operate as an
+independent instance in each of the partitions.
+Multiplicity 0..*
+Type Reference to EcucPartition
+Post-Build Variant
+false
+Multiplicity
+Post-Build Variant
+false
+Value
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: ECU
+Dependency
+No Included Containers
+[SWS_Crypto_00212] ⌈ The Crypto Driver module shall reject configurations with
+partition mappings which are not supported by the implementation.
+()
+[SWS_Crypto_CONSTR_00001] ⌈ The Crypto Driver module will operate as an
+independent instance in each of the partitions, means the called API will only target
+the partition it is called in.
+()
+87 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

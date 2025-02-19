@@ -1,0 +1,40 @@
+
+
+publicExponent INTEGER, -- e
+}
+The fields of type RSAPublicKey have the following meanings:
+ modulus is the modulus n.
+ publicExponent is the public exponent e.
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00187]⌈ For the RSA public key in the format
+CRYPTO_KE_FORMAT_BIN_IDENT_PUBLICKEY the “subjectPublicKey BIT
+STRING” is defined as “RSAPublicKey”.
+Explanation:
+Considering RFC5280, section 4.1, the SubjectPublicKeyInfo follows directly the
+definition described above. Thus, a key type of
+CRYPTO_KE_FORMAT_BIN_IDENT_PUBLICKEY matches SubjectPublicKeyInfo
+and CRYPTO_KE_FORMAT_BIN _RSA_PUBLICKEY matches the subjectPublicKey
+in this definition.
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00188]⌈ The algorithm identifier for RSA keys shall have the value
+1.2.840.113549.1.1.1. This corresponds to the ASN.1 coded OID value “2A 86 48 86
+F7 0D 01 01 01”. This OID shall be provided whenever an AlgorithmIdentifier for RSA
+is required. In other words, when a key has the format
+CRYPTO_KE_FORMAT_BIN_IDENT_PRIVATEKEY_ PKCS8 or
+CRYPTO_KE_FORMAT_BIN_IDENT_PUBLICKEY and is used for RSA, the
+AlgorithmIdentifier must have this value.
+Note: In some cases, a NULL value is followed directly to the OID. So, a value that
+follows directly after this OID in the same sequence is optional and should be
+tolerated.
+(SRS_CryptoStack_00008)
+7.2.5.2 Definition of ECC Key Material
+[SWS_Crypto_00189]⌈ Due to a lack of clear and efficient standard definition for
+ECC keys, key material for ECC is defined as binary information in the format
+definition of CRYPTO_KE_FORMAT_BIN_OCTET. The length of data depends on
+the assigned curve operation.
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00190]⌈ Public keys for NIST and Brainpool ECC curves are provided
+with their X and Y coordinates:
+ECC Public Key = Point X | Point Y.
+The points are stored in little endian format.
+30 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,51 @@
+
+
+[SWS_Crypto_00153] ⌈ If parameter targetKeyElementId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyElementCopy shall report CRYPTO_E_PARAM_HANDLE to the DET
+and return E_NOT_OK.
+()
+[SWS_Crypto_00154] If no errors are detected by the Crypto Driver, the function
+shall copy the key element referenced by keyElementId in the key referenced by
+cryptoKeyId to the key element referenced by targetKeyElementId in the key
+referenced by targetCryptoKeyId.
+8.3.4.4.2 Crypto_KeyElementCopyPartial
+[SWS_Crypto_91015]⌈
+Service
+Crypto_KeyElementCopyPartial
+Name
+Std_ReturnType Crypto_KeyElementCopyPartial (
+uint32 cryptoKeyId,
+uint32 keyElementId,
+uint32 keyElementSourceOffset,
+Syntax uint32 keyElementTargetOffset,
+uint32 keyElementCopyLength,
+uint32 targetCryptoKeyId,
+uint32 targetKeyElementId
+)
+Service ID
+0x13
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant but not for the same cryptoKeyId
+Holds the identifier of the key whose key element shall be the
+cryptoKeyId
+source element.
+Holds the identifier of the key element which shall be the source
+keyElementId
+for the copy operation.
+keyElement This is the offset of the of the source key element indicating the
+SourceOffset start index of the copy operation.
+Parameters keyElement This is the offset of the of the target key element indicating the
+(in) TargetOffset start index of the copy operation.
+keyElementCopy
+Specifies the number of bytes that shall be copied.
+Length
+targetCryptoKey Holds the identifier of the key whose key element shall be the
+Id destination element.
+targetKey Holds the identifier of the key element which shall be the
+ElementId destination for the copy operation.
+Parameters
+None
+(inout)
+64 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

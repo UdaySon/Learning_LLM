@@ -1,0 +1,43 @@
+
+
+uint32 inputLength,
+uint8* outputPtr,
+uint32* outputLengthPtr,
+uint8* secondaryOutputPtr,
+uint32* secondaryOutputLengthPtr
+)
+Service ID [hex] 0x1a
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+dispatchId unique id to identify the request
+keyId key Id
+keyElementId key element Id
+Parameters (in) targetKeyId --
+targetKeyElementId --
+inputPtr Pointer to the input data.
+inputLength Contains the input length in bytes.
+Parameters
+None
+(inout)
+outputPtr Pointer to the output data.
+outputLengthPtr Contains the output length in bytes.
+Parameters
+(out) secondaryOutputPtr Pointer to the secondary output data.
+secondaryOutput
+Contains the secondary output length in bytes.
+LengthPtr
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: The service request failed because
+Return value Std_ReturnType
+the service is still busy
+CRYPTO_E_CUSTOM_ERROR: Custom processing
+failed
+Description Requests the execution of a function that is specified by the given dispatch id.
+Available via Crypto.h
+()
+[SWS_Crypto_00256]⌈ If the module is not yet initialized and if development error
+detection for the Crypto Driver is enabled,
+the function Crypto_CustomSync shall report CRYPTO_E_UNINIT to the DET and
+return E_NOT_OK.()
+76 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

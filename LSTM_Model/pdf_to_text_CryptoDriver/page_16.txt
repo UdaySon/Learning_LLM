@@ -1,0 +1,46 @@
+
+
+7.1.1 CryptoPrimitive configuration
+The Crypto Driver contains one or more crypto driver objects that each supports one
+or more crypto primitive service. Algorithm family and mode provides details on how
+to operate crypto primitive services. For example, the crypto primitive service
+“Encrypt” supports the Family “AES” and the mode “CBC”. Further refinements are
+required by setting secondary family values.
+The CryptoPrimitive configuration of a crypto driver object defines the possible
+options for a crypto primitive service. From the example above, the driver can
+support the modes CBC or ECB for an AES algorithm. This is sometimes referred as
+the “capabilities” of the driver for a specific crypto primitive service. Thus, a
+CryptoPrimitive may configure several family and mode values if it is applicable for a
+crypto service primitive.
+The job configuration of the CSM contains a reference to a CsmPrimitive. The
+corresponding Config section of this CsmPrimitive also defines the families and
+mode, but with multiplicity of 1, to identify uniquely what combination of family and
+mode shall be used for a job. At least, the associated crypto driver object must
+contain a CryptoPrimitive that supports the configuration. This shall be ensured on
+configuration level and at least checked at runtime.
+To support new features for a crypto service which aren’t yet modelled in the
+specification (in the various enumerations of family and mode), custom specific
+algorithm families and modes can be configured in the crypto driver. The
+CryptoPrimitive references to these custom values to indicate what combination of
+crypto primitive service, (custom-)family and (custom-)mode are possible.
+The CSM job configuration need to reference to these custom configuration items.
+[SWS_Crypto_00239] ⌈ A crypto driver that supports algorithm families and algorithm
+modes beyond the pre-defined ones available in [ECUC_Crypto_00035],
+[ECUC_Crypto_00036] and/or [ECUC_Crypto_00037] shall define custom specific
+value algorithm families and algorithm modes through the containers
+CryptoPrimitiveAlgorithmFamilyCustom and
+CryptoPrimitiveAlgorithmModeCustom.
+()
+[SWS_Crypto_00240] ⌈ The
+CryptoPrimitiveAlgorithmModeCustom/CryptoPrimitiveAlgorithmMod
+eCustomId and CryptoPrimitiveAlgorithmFamilyCustom/
+CryptoPrimitiveAlgorithmFamilyCustomId shall use the reserved range
+from 128..254.
+()
+[SWS_Crypto_00241] ⌈ A CryptoPrimitive shall define one
+CryptoPrimitiveService and can define one or more items for
+CryptoPrimitiveAlgorithmFamily, CryptoPrimitiveAlgorithmMode,
+CryptoPrimitiveAlgorithmSecondaryFamily,
+CryptoPrimitiveAlgorithmFamilyCustomRef and
+CryptoPrimitiveAlgorithmModeCustomRef as long as all permutations of the
+16 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

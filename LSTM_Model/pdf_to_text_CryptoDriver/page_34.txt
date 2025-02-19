@@ -1,0 +1,38 @@
+
+
+[SWS_Crypto_00245] ⌈ If a key is currently updated in NV RAM Block and has not
+yet been written by NVM, then this shall be reflected in the key status with
+CRYPTO_KEYSTATUS_UPDATE_IN_PROGRESS through the
+Crypto_KeyGetStatus() interface.
+(SRS_CryptoStack_00008)
+[SWS_Crypto_00246] ⌈ For each configured CryptoNvBlock the Crypto driver shall
+provide a separate set of Crypto_<vi>_<ai>_NvBlock_xxx_<NvBlock>()
+functions (xxx refers to Init, ReadFrom, WriteTo and Callback) (see chapter Callback
+notification). The short name of the CryptoNvBlock container replaces the tag
+<NvBlock>. The tags <vi> and <ai> are replaced as described in
+[SWS_Crypto_00012]. These functions shall be set as callbacks in the respective
+fields of the NvmBlockDescriptor.
+(SRS_CryptoStack_00008, SRS_CryptoStack_00118)
+7.2.6.2 Reading Keys from NVM
+[SWS_Crypto_00247] ⌈ On initialization of the crypto driver, the callback function
+Crypto_<vi>_<ai>_NvBlock_ReadFrom_<NvBlock>() shall be called to
+retrieve the previously persisted key elements for the associated Keys.
+(SRS_CryptoStack_00008)
+Note:
+The format of the data within the NvBlock are local to the driver. At least, the driver
+needs to make sure that key elements and keys can be uniquely assigned within the
+NV RAM Block. Also, versioning of NV RAM Block data for future updates of the
+format shall be considered. Data consistency of the block may be considered.
+[SWS_Crypto_00248] ⌈ On initialization, if an NvBlock could be read successfully
+and the internal consistency check of the NvBlock data was successful, all key
+elements of the referencing keys to this block shall be set with the value from the NV
+RAM Block data.
+(SRS_CryptoStack_00061, SRS_CryptoStack_00117)
+[SWS_Crypto_00249] ⌈
+On initialization, when reading an NvBlock for keys and the block is available but
+corrupted (driver internal data consistency check failed), all related keys shall be set
+to invalid. The length value of all associated key elements, where
+CryptoKeyElementPersist is set to TRUE, shall be set to 0 even if
+CryptoKeyElementInitValue is set for this key.
+(SRS_CryptoStack_00061, SRS_CryptoStack_00117)
+34 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

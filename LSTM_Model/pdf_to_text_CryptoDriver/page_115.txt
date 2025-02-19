@@ -1,0 +1,44 @@
+
+
+Multiplicity 0..*
+Type Reference to CryptoPrimitiveAlgorithmFamilyCustom
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+scope: local
+dependency: This reference is only needed if the driver also supports
+Scope / Dependency
+custom specific features for PrimitiveAlgorithmFamily for the specific Crypto
+PrimitiveService.
+SWS Item [ECUC_Crypto_00051]
+Parameter Name CryptoPrimitiveAlgorithmModeCustomRef
+Parent Container CryptoPrimitive
+Description Reference to a customer specific algorithm mode custom container
+Multiplicity 0..*
+Type Reference to CryptoPrimitiveAlgorithmModeCustom
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+dependency: This reference is only needed if the driver also supports
+Scope / Dependency custom specific features for PrimitiveAlgorithmMode for the specific Crypto
+PrimitiveService.
+SWS Item [ECUC_Crypto_00052]
+Parameter Name CryptoPrimitiveAlgorithmSecondaryFamilyCustomRef
+Parent Container CryptoPrimitive
+Description Reference to a customer specific algorithm family custom container
+Multiplicity 0..*
+115 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,39 @@
+
+
+CRYPTO_SIGNATUREGENERATE 0x07
+CRYPTO_SIGNATUREVERIFY 0x8
+CUSTOM_SERVICE 0x15
+Pre-compile time X All Variants
+Multiplicity Configuration Class Link time --
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration Class Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00053]
+Parameter Name CryptoPrimitiveSupportContext
+Parent Container CryptoPrimitive
+Configures if the crypto primitive supports to store or restore context data of
+Description the workspace. Since this option is vulnerable to security, it shall only set to
+TRUE if absolutely needed.
+Multiplicity 0..1
+Type EcucBooleanParamDef
+Default value false
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00050]
+Parameter Name CryptoPrimitiveAlgorithmFamilyCustomRef
+Parent Container CryptoPrimitive
+Description Reference to a customer specific algorithm family custom container
+114 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

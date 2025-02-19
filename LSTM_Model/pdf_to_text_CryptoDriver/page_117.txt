@@ -1,0 +1,14 @@
+10.1.13 CryptoPrimitiveAlgorithmFamilyCustom
+SWS Item [ECUC_Crypto_00046]
+Container
+CryptoPrimitiveAlgorithmFamilyCustom
+Name
+Parent
+CryptoPrimitives
+Container
+Container of custom algorithm family values. The container name serves as a
+Description
+symbolic name for the identifier of the custom algorithm family type.
+Configuration Parameters
+SWS Item [ECUC_Crypto_00047]
+Parameter Name CryptoPrimitiveAlgorithmFamilyCustomId

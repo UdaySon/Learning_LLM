@@ -1,0 +1,44 @@
+
+
+Default value --
+Post-Build Variant Multiplicity false
+Post-Build Variant Value false
+Pre-compile time X All Variants
+Multiplicity Configuration Class Link time --
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration Class Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00027]
+Parameter Name CryptoKeyElementWriteAccess
+Parent
+CryptoKeyElement
+Container
+Define the writing access rights of the key element through external API.
+CRYPTO_WA_DENIED = key element can not be written from outside the
+Crypto Driver CRYPTO_WA INTERNAL_COPY = key element can be filled with
+Description
+another key element in the same crypto driver. CRYPTO_WA_ALLOWED = key
+element can be rwritten as plaintext CRYPTO_WA_ENCRYPTED = key element
+can be written encrypted. E.g. SHE load key.
+Multiplicity 1
+Type EcucEnumerationParamDef
+CRYPTO_WA_ALLOWED 0x00
+CRYPTO_WA_DENIED 0x03
+Range
+CRYPTO_WA_ENCRYPTED 0x01
+CRYPTO_WA_INTERNAL_COPY 0x02
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope / scope: local
+Dependency dependency: The values for the enumeration types are chosen in a way that its
+103 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

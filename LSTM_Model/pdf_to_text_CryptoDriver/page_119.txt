@@ -1,0 +1,38 @@
+
+
+Description The custom value of this algorithm mode
+Multiplicity 1
+Type EcucIntegerParamDef (Symbolic Name generated for this parameter)
+Range 128 .. 254
+Default value --
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+scope: local
+Scope / dependency: The CustomIds are used to distinguish the different custom
+Dependency algorithm mode. Thus, every designated mode shall have a unique ID that is
+fixed over updates and lifetime of the driver.
+No Included Containers
+10.1.15 CryptoNvStorage
+SWS Item [ECUC_Crypto_00054]
+CryptoNvStorage_configuration_link:page_120_image.PNG
+Container
+CryptoNvStorage
+Name
+Parent
+Crypto
+Container
+Container of NV block storage. Contains a collection of all NV storage blocks used
+Description
+for key storage.
+Configuration Parameters
+Included Containers
+Container Name Multiplicity Scope / Dependency
+CryptoNvBlock 1..* Container to configure key storage in NVM

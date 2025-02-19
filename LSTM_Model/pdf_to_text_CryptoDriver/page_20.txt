@@ -1,0 +1,36 @@
+
+
+It should be noted, that this can lead to a conflict that must be arbitrated within the
+crypto driver and its objects. Especially, additional delays for a crypto service
+operation can be expected due to the generation of random number values.
+[SWS_Crypto_00226] ⌈ A Crypto Driver Object shall only call a default random
+number generator of its own Crypto Driver.
+()
+7.2.1 Normal Operation
+[SWS_Crypto_00017] ⌈
+“START” indicates a new request of a crypto primitive, and it shall cancel all previous
+requests of the same job.
+()
+Note:
+“job is being processed” means that the corresponding crypto driver object is
+currently and actively processing this job. When a job is not finished but the crypto
+driver object is not active with it (because, e.g., the operation “FINISH” is
+outstanding) this does not mean that this job is being processed.
+Note:
+To unite a single call function and a streaming approach for the crypto services, there
+is one interface Crypto_ProcessJob() with a service operation parameter
+(embedded in job structure parameter). This service operation is a flag field, that
+indicates the operation modes “START”, “UPDATE” or “FINISH”. It declares explicitly
+which operation will be performed.
+If the “UPDATE” flag is set, the crypto primitive expects input data. “FINISH”
+indicates, that after this function call, all data are fed completely and the crypto
+primitive can finalize the calculations.
+These operations can be combined to execute multiple operations at once. Then, the
+operations are performed in the order “START”, “UPDATE”, “FINISH”.
+The coherent single call approach could improve the performance due to less
+overhead. Instead of calling the explicit API multiple times, only one call is necessary.
+This approach is intended to be used with small data input, which demand fast
+processing.
+The diagram in SWS_Crypto_00018 shows the state machine of a job of this design
+without considering the transitions because of errors.
+20 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

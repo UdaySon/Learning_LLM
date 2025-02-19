@@ -1,0 +1,36 @@
+
+
+10.1.10 CryptoKeyType
+SWS Item [ECUC_Crypto_00030]
+Container Name CryptoKeyType
+Parent Container CryptoKeyTypes
+Description Configuration of a CryptoKeyType
+Configuration Parameters
+SWS Item [ECUC_Crypto_00031]
+Parameter Name CryptoKeyElementRef
+Parent Container CryptoKeyType
+Refers to a pointer in the CRYPTOCrypto Key Element, which holds the
+Description
+data of the crypto key element.
+Multiplicity 1..*
+Type Reference to CryptoKeyElement
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope / Dependency scope: local
+No Included Containers
+10.1.11 CryptoPrimitives
+CryptoPrimitives_configuration_link:page_107_image.PNG
+SWS Item [ECUC_Crypto_00032]
+Container Name CryptoPrimitives
+Parent Container Crypto
+Description Container for CRYPTO primitives
+Multiplicity Configuration Class Pre-compile time X All Variants
+105 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

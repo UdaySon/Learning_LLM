@@ -1,0 +1,48 @@
+
+
+Type Reference to CryptoPrimitive
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00043]
+Parameter Name CryptoDriverObjectEcucPartitionRef
+Parent Container CryptoDriverObject
+Maps a crypto driver object to zero or one ECUC partition. The ECUC
+Description partition referenced is a subset of the ECUC partitions where the Crypto
+driver is mapped to.
+Multiplicity 0..1
+Type Reference to EcucPartition
+Post-Build Variant
+false
+Multiplicity
+Post-Build Variant
+false
+Value
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope / Dependency scope: ECU
+SWS Item [ECUC_Crypto_00018]
+Parameter Name CryptoPrimitiveRef
+Parent Container CryptoDriverObject
+Refers to primitive in the CRYPTO. The CryptoPrimitive is a pre-
+Description
+configured container of the crypto service that shall be used.
+92 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

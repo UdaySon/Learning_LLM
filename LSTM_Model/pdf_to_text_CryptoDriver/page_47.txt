@@ -1,0 +1,43 @@
+
+
+CRYPTO_E_JOB_CANCELED: The service request failed because
+the synchronous Job has been canceled
+CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized
+source key element
+CRYPTO_E_CUSTOM_ERROR: Custom processing failed
+Description Performs the crypto primitive, that is configured in the job parameter.
+Available via Crypto.h
+()
+This Interface has a different behavior depending on the content of the job
+parameter (i.e. the type of crypto service).
+Depending on this configuration, other input parameters within the job need to be
+set, in order to call this function successfully. I.e. the MAC Generate crypto primitive
+requires a key, a plaintext to be used, and a buffer for the generated MAC.
+[SWS_Crypto_00057] ⌈ If the module is not initialized and if development error
+detection for the Crypto Driver is enabled, the function Crypto_ProcessJob shall
+report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00058] ⌈ If the parameter objectId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_ProcessJob shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00059] ⌈ If the parameter job is a null pointer and if development
+error detection for the Crypto Driver is enabled, the function Crypto_ProcessJob
+shall report CRYPTO_E_PARAM_POINTER to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00064] ⌈ If the parameter job->jobPrimitiveInfo-
+>primitiveInfo->service is not supported by the Crypto Driver Object and
+if development error detection for the Crypto Driver is enabled, the function
+Crypto_ProcessJob shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK
+()
+[SWS_Crypto_00202]⌈ If the parameter job->jobPrimitiveInfo->primitiveInfo->service
+is set to CRYPTO_KEYDERIVE, the parameter job->targetCryptoKeyId must be in
+range; else the function Crypto_ProcessJob shall report
+CRYPTO_E_PARAM_HANDLE to DET and return E_NOT_OK
+()
+[SWS_Crypto_00065] ⌈ If job->jobPrimitiveInfo->primitiveInfo-
+>service is set to CRYPTO_HASH or CRYPTO_MACGENERATE, and the parameter
+job->jobPrimitiveInputOutput->outputLengthPtr is smaller than the
+47 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

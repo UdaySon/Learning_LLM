@@ -1,0 +1,40 @@
+
+
+Resetting a job using “START” is only possible when the job is not actively being
+processed.
+[SWS_Crypto_00118] ⌈ If Crypto_ProcessJob() is called while the job is in state
+“Idle” and the “START” flag in the operation mode is not set, the function shall return
+with E_NOT_OK.
+()
+Note:
+If Crypto_ProcessJob() is called while in “Active” state and with the operation
+mode “UPDATE”, the crypto primitive is fed with input data. In terms of streaming of
+arbitrary amounts of user data multiple calls with operation mode “UPDATE” is used,
+to feed more input data to the previously ones. In the “Update” state, there are
+usually also calculations of intermediate results of cryptographic primitives. Actually,
+in some cases (e.g. AES Encryption in CBC mode) there is also the generation of
+output data. While operating with the streaming approach (“Start”, “Update”, “Finish”)
+the Crypto Driver Object is waiting for further input (“Update”) until the “Finish” state
+has been reached. No other job could be processed meanwhile.
+[SWS_Crypto_00023] ⌈ If Crypto_ProcessJob() is called while in “Active” state
+and with the operation mode “FINISH”, the cryptographic calculations shall be
+finalized. Additional data (i.e. the MAC to be tested on a MAC verification service)
+shall be available at this point to process this job successfully. The results of the
+calculations shall be stored in the output buffers. At end of the processing the Crypto
+Driver shall switch to “Idle” state.
+()
+To process a crypto service with a single call with Crypto_ProcessJob() the
+operation mode ”CRYPTO_OPERATIONMODE_SINGLECALL” is a disjunction (bitwise
+OR) of the 3 modes “START”, ”UPDATE” and ”FINISH”.
+[SWS_Crypto_00025] ⌈ If an internal error occurs, the corresponding job state shall
+be set to "Idle" and all input data and intermediate results shall be discarded.
+()
+[SWS_Crypto_00119] ⌈ If an internal error occurs while processing an asynchronous
+job, the corresponding job state shall be set to "Idle" and all input data and
+intermediate results shall be discarded. Further, the callback notification shall be
+called with an appropriate error code.
+()
+7.2.2 Functional Requirements
+Note: The information whether the job shall be processed synchronously or
+asynchronously is part of the Crypto_JobType.
+22 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,45 @@
+
+
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00024]
+Parameter Name CryptoKeyElementReadAccess
+Parent
+CryptoKeyElement
+Container
+Define the reading access rights of the key element through external API.
+CRYPTO_RA_DENIED = key element cannot be read from outside the Crypto
+Driver CRYPTO_RA INTERNAL_COPY = key element can be copied to another
+Description
+key element in the same crypto driver. CRYPTO_RA_ALLOWED = key element
+can be read as plaintext CRYPTO_RA_ENCRYPTED = key element can be read
+encrypted. E.g. SHE Ram-Key export.
+Multiplicity 1
+Type EcucEnumerationParamDef
+CRYPTO_RA_ALLOWED 0x00
+CRYPTO_RA_DENIED 0x03
+Range
+CRYPTO_RA_ENCRYPTED 0x01
+CRYPTO_RA_INTERNAL_COPY 0x02
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+scope: local
+Scope /
+dependency: The values for the enumeration types are chosen in a way that its
+Dependency
+value can be used to deduce a hierarchical access level.
+SWS Item [ECUC_Crypto_00022]
+Parameter Name CryptoKeyElementSize
+Parent Container CryptoKeyElement
+Description Maximum Size size of a CRYPTO key element in bytes
+Multiplicity 1
+Type EcucIntegerParamDef
+Range 1 .. 4294967295
+102 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

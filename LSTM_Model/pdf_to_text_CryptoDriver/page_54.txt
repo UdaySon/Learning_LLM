@@ -1,0 +1,40 @@
+
+
+()
+[SWS_Crypto_00123] ⌈ If development error detection for the Crypto Driver is
+enabled: The function Crypto_CancelJob shall raise the error
+CRYPTO_E_UNINIT and return E_NOT_OK if the module is not yet initialized.
+ ( )
+[SWS_Crypto_00124] ⌈ If development error detection for the Crypto Driver is
+enabled: The function Crypto_CancelJob shall raise the error
+CRYPTO_E_PARAM_HANDLE and return E_NOT_OK if the parameter objectId is
+out or range.
+ ( )
+[SWS_Crypto_00125] ⌈ If development error detection for the Crypto Driver is
+enabled: The function Crypto_CancelJob shall raise the error
+CRYPTO_E_PARAM_POINTER and return E_NOT_OK if the parameter job is a null
+pointer.
+ ( )
+[SWS_Crypto_00214] ⌈ If no errors are detected by Crypto Driver and the driver
+does currently not process this job, the service Crypto_CancelJob() shall return
+E_OK without any processing.
+()
+[SWS_Crypto_00143] ⌈ If no errors are detected by Crypto Driver and the driver is
+able to cancel the job immediately, the service Crypto_CancelJob() shall remove
+the job from the queue and cancel the job in the hardware. If the cancellation is
+successful E_OK shall be returned, otherwise it shall return E_NOT_OK.
+()
+Note:
+Especially hardware implementations may not support a cancelation. If
+Crypto_CancelJob() is called and immediate cancelation is not possible at least
+all results and notifications of the job shall be suppressed. The caller can be sure,
+that there will be no (intermediate) results by callback or synchronous result value.
+[SWS_Crypto_00183] ⌈ If no errors are detected by Crypto Driver and the driver is
+not able to cancel the job (e.g. due to hardware limitations), the service
+Crypto_CancelJob() shall return CRYPTO_E_JOB_CANCELED.
+()
+Note:
+SWS_Crypto_00183 should not have any effect on the job processing in the Crypto
+Driver. The processing should be completed as any other regular job. The CSM
+guarantees that the result buffer pointer is valid until the job is finished.
+54 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

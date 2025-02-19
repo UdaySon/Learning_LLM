@@ -1,0 +1,41 @@
+
+
+Pre-compile time X All Variants
+Multiplicity Configuration Class Link time --
+Post-build time --
+Configuration Parameters
+SWS Item [ECUC_Crypto_00006]
+Parameter Name CryptoDevErrorDetect
+Parent Container CryptoGeneral
+Switches the development error detection and notification on or off. true:
+Description detection and notification is enabled. false: detection and notification is
+disabled
+Multiplicity 1
+Type EcucBooleanParamDef
+Default value false
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00040]
+Parameter Name CryptoInstanceId
+Parent Container CryptoGeneral
+Instance ID of the crypto driver. This ID is used to discern several crypto
+Description
+drivers in case more than one driver is used in the same ECU.
+Multiplicity 1
+Type EcucIntegerParamDef
+Range 0 .. 255
+Default value --
+Post-Build Variant
+false
+Value
+Value Pre-compile time X All Variants
+85 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

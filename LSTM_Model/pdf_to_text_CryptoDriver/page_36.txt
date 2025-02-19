@@ -1,0 +1,44 @@
+
+
+uint32 dispatchId **** - unique id to identify the request
+uint32 keyId
+uint32 keyElementId
+uint32 targetKeyId
+uint32 targetKeyElementId
+const uint8* inputPtr
+uint32 inputLength
+uint8* outputPtr
+uint32* outputLengthPtr
+uint8* secondaryOutputPtr
+uint32* secondaryOutputLengthPtr
+**** dispatchId shall be set according to the rule:
+uint32 dispacthId = (uint32)(
+((ServiceInfoType << 24) & 0xFF000000) ||
+((CryptoPrimitiveAlgorithmFamilyCustomId << 16) & 0x00FF0000) ||
+((Crypto_AlgorithmModeType << 8) & 0x0000FF00) ||
+((ServiceId ) & 0x000000FF))()
+7.2.7.2 Custom service and function profile 1 (KeyM and certificate
+management)
+This profile defines how to use a custom service with the certificate management
+services specified for the KeyM. Using this profile enables the KeyM to forward the
+actual certificate processing to the Crypto Driver and its associated HSM. The
+Crypto profile provides a consistent mapping of the parameters from the KeyM
+services and functions to the Csm job configured for the custom service and to the
+custom synchronous API function Crypto_CustomSync.
+The ServiceInfoType is defined as CUSTOM_SERVICE with value 0x15.
+The Crypto_AlgorithmFamilyType is defined as CRYPTO_ALGOFAM_KEYM with
+value 0x80 and need to be configured via [ECUC_Crypto_00047]
+CryptoPrimitiveAlgorithmFamilyCustomId.
+The Crypto_AlgorithmModeType is defined as CRYPTO_ALGOMODE_NOT_SET
+with value 0x00.
+The KeyM_ServiceCertificate (ServiceId: 0x09) can be mapped by the KeyM to call
+KeyM_ServiceCertificateByCertId (ServiceId: 0x13).
+In case the data type mapped to a parameter of type unit8* have a bigger size (e.g.
+uint16) the MSB should be the first byte.
+[SWS_Crypto_00260]⌈ Each Crypto profile shall define the mapping of the
+parameters of Crypto_CustomSync to the using KeyM service/function.()
+Mapping table for Csm_CustomService:
+service Id 0x13 0x0C 0x0D 0x0E
+processing type async async async async
+Return type Std_ReturnType Std_ReturnType Std_ReturnType Std_ReturnType
+36 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,30 @@
+
+
+With Crypto_KeyElementSet(), the parameter 'keyElementId' shall be set to 1.
+This can be taken from e.g. CRYPTO_KE_MAC_KEY or
+CRYPTO_KE_CIPHER_KEY (see SWS_Csm_01022).
+The SHE hardware provides M4M5 as the proof of the correct key processing and to
+confirm the operation. To extract this key information, an additional key element is
+needed. To read the proof after the key-set-valid operation, the function
+Crypto_KeyElementGet() with key element ID value '2' shall be used, e.g. with
+pre-defined macros CRYPTO_KE_MAC_PROOF or
+CRYPTO_KE_CIPHER_PROOF. The proof will only be available directly after a
+successful key-element-set followed by key-set-valid operation, e.g. within an ignition
+cycle. This means, the proof must not be stored, e.g. in NV-RAM, to provide this
+information later on.()
+
+To allow a crypto driver to persist key elements in non-volatile memory, access to
+NVM is required. For this, the configuration of the crypto driver needs a reference to
+one or more NVM blocks. Keys with key elements that shall be persisted are to be
+assigned to these blocks. The elements that are to be persisted will then be written
+by the driver on validation and values are retrieved during initialization of the driver.
+The principal relation to configuration items is shown in Figure 7-2.
+
+Important note:
+The crypto driver only deals with the functional operation to store data to and read
+data from an NVM block. Any error handling like defects of NVM blocks must be
+captured and dealt with in the application.
+7.2.6.1 Writing keys to NVM
+[SWS_Crypto_00242] ⌈ The storage of keys resp. their elements shall be initiated
+only when KEYSETVALID” is started, either by a call to Crypto_KeySetValid()
+32 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

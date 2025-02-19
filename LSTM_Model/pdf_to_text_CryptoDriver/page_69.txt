@@ -1,0 +1,50 @@
+
+
+[SWS_Crypto_91013]⌈
+Service Name Crypto_RandomSeed
+Std_ReturnType Crypto_RandomSeed (
+uint32 cryptoKeyId,
+Syntax const uint8* seedPtr,
+uint32 seedLength
+)
+Service ID
+0x0d
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant, but not for the same cryptoKeyId
+Holds the identifier of the key for which a new seed shall be
+cryptoKeyId
+generated.
+Parameters
+Holds a pointer to the memory location which contains the data to
+(in) seedPtr
+feed the seed.
+seedLength Contains the length of the seed in bytes.
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+E_OK: Request successful
+Std_Return- E_NOT_OK: Request failed
+Return value
+Type CRYPTO_E_KEY_NOT_VALID: Request failed, the key state of
+the key identified by cryIfKeyId is "invalid".
+This function generates the internal seed state using the provided entropy source.
+Description
+Furthermore, this function can be used to update the seed state with new entropy
+Available via Crypto.h
+()
+[SWS_Crypto_00128] ⌈ If the module is not yet initialized and if development error
+detection for the Crypto Driver is enabled, the function Crypto_RandomSeed shall
+report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00129] ⌈ If the parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_RandomSeed shall report CRYPTO_E_PARAM_HANDLE to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00130] ⌈ If the parameter seedPtr is a null pointer and if
+development error detection for the Crypto Driver is enabled, the function
+69 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

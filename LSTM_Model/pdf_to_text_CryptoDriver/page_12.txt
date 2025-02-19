@@ -1,0 +1,21 @@
+5 Dependencies to other modules
+[SWS_Crypto_00003] If an off-chip crypto hardware module (e.g. external HSM) is
+used, the Crypto Driver shall use services of other MCAL drivers (e.g. SPI).
+Hint: If the Crypto Driver uses services of other MCAL drivers (e.g. SPI), it must be
+ensured that these drivers are up and running before initializing the Crypto Driver
+module.
+[SWS_Crypto_00116] ⌈The Crypto Driver shall be able to store key material in a
+non-volatile way if supported by the dedicated crypto hardware.
+
+Note:
+The Crypto Drivers are called by the Crypto Interface (CRYIF), which is implemented
+according to the cryptographic interface specification [4].
+The Crypto Drivers access the underlying hardware and software objects, to
+calculate results with their cryptographic primitives. The results shall be forwarded to
+the CRYIF.
+5.1 File structure
+5.1.1 Code File Structure
+The code file structure is not defined within this specification completely.
+[SWS_Crypto_00005] ⌈ The code file structure shall contain a source file Crypto.c
+and a code file Crypto_KeyManagement.c.
+

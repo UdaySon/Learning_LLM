@@ -1,0 +1,40 @@
+
+
+[SWS_Crypto_00257]⌈ If the parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled,
+the function Crypto_CustomSync shall report CRYPTO_E_PARAM_HANDLE to the
+DET and return E_NOT_OK.()
+8.4 Callback notification
+8.4.1 Crypto_NvBlock_Init_<NvBlock>
+[SWS_Crypto_91023]⌈
+Service Name Crypto_<vi>_<ai>_NvBlock_Init_<NvBlock>
+Std_ReturnType Crypto_<vi>_<ai>_NvBlock_Init_<NvBlock> (
+Syntax NvM_InitBlockRequestType initBlockRequest
+)
+Service ID
+0x16
+[hex]
+Sync/Async Synchronous
+Reentrancy Non Reentrant
+Parameters
+initBlockRequest The request type
+(in)
+Parameters
+None
+(inout)
+Parameters
+None
+(out)
+E_OK: callback function has been processed successfully
+Return value Std_ReturnType any other: callback function has been processed
+unsuccessfully
+This function will be called by NVM. The crypto driver has the task to initialize the
+NVRAM block.
+Description The resulting function name shall be set to the container associated with the Nvm
+BlockDescriptor:{CryptoNvBlock/CryptoNvBlockDescriptorRef}/NvmInitBlock
+Callback}/NvmInitBlockCallbackFnc
+Available via Crypto_cfg.h
+(SRS_CryptoStack_00117, SRS_CryptoStack_00118)
+8.4.2 Crypto_NvBlock_ReadFrom_<NvBlock>
+[SWS_Crypto_91024]⌈
+77 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

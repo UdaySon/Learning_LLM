@@ -1,0 +1,41 @@
+
+
+7.2.2.1 Synchronous Job Processing
+[SWS_Crypto_00026] ⌈ When the synchronous job processing is used, the
+corresponding interface functions shall compute the result synchronously within the
+context of this function call.
+()
+[SWS_Crypto_00199] ⌈ If the Crypto Driver has a queue and if a synchronous job is
+issued and the priority is greater than the highest priority available in the queue, the
+Crypto Driver shall disable processing new jobs from the queue until the next call of
+the main function has finished that follows after completion of the currently processed
+job.
+()
+Note: Channels may hold jobs of both asynchronous and synchronous processing
+type. If so, a synchronous job might not be accepted for processing although its job's
+priority is higher than those of all asynchronous jobs.
+7.2.2.2 Asynchronous Job Processing
+[SWS_Crypto_00027] ⌈ If the asynchronous job processing is used, the interface
+functions shall only hand over the necessary information to the primitive. The actual
+computation may be kicked-off by the main function.
+()
+[SWS_Crypto_00028] ⌈ For each asynchronous request the Crypto Driver shall
+notify CRYIF about the completion of the job by calling the
+CRYIF_CallbackNotification function passing on the job information and the result of
+cryptographic operation.
+()
+7.2.3 Design Notes
+The Crypto Driver provides two services: (1) the crypto services itself and (2) key
+management.
+7.2.3.1 Priority-dependent Job Queue
+[SWS_Crypto_00029] ⌈ Optionally, every Crypto Driver Object shall be able to line
+up jobs into a queue to process them one after the other.
+()
+[SWS_Crypto_00179] ⌈ The Crypto Driver Object shall disable queueing when the
+size of the crypto driver queue is set to 0.
+()
+[SWS_Crypto_00030] ⌈ The queue shall sort the jobs according to the configured
+jobs’ priority.
+()
+The higher the job priority value, the higher the job’s priority.
+23 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

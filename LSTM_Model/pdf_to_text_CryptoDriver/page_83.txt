@@ -1,0 +1,36 @@
+
+
+10 Configuration specification
+Chapter 10.1 specifies the structure (containers) and the parameters of the module
+Crypto.
+Chapter 10.2 specifies additionally published information of the module Crypto.
+10.1 Containers and configuration parameters
+The following chapters summarize all configuration parameters. The detailed
+meanings of the parameters describe Chapters 7 and Chapter 8.
+Note: The Ids in the configuration containers shall be consecutive, gapless and shall
+start from zero.
+10.1.1 Crypto
+Crypto_Configuration_link - page_84_image.PNG
+SWS Item [ECUC_Crypto_00001]
+Module Name Crypto
+Description Configuration of the Crypto (CryptoDriver) module
+Post-Build Variant Support false
+Supported Config Variants VARIANT-PRE-COMPILE
+Included Containers
+Container
+Multiplicity Scope / Dependency
+Name
+CryptoDriver-
+1 Container for CRYPTO Objects
+Objects
+CryptoGeneral 1 Container for common configuration options
+CryptoKey-
+0..1 Container for Crypto key elements
+Elements
+CryptoKeyTypes 0..1 Container for CRYPTO key types
+CryptoKeys 0..1 Container for CRYPTO keys
+CryptoNv- Container of NV block storage. Contains a collection of all NV
+0..1
+Storage storage blocks used for key storage.
+CryptoPrimitives 0..* Container for CRYPTO primitives
+83 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

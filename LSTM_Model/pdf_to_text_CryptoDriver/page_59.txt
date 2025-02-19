@@ -1,0 +1,47 @@
+
+
+[SWS_Crypto_00238] ⌈ If no errors are detected by Crypto Driver, the service
+Crypto_KeySetInvalid() sets the status of key cryptoKeyId to invalid.
+()
+8.3.4.2 Key Extraction Interface
+8.3.4.2.1 Crypto_KeyElementGet
+[SWS_Crypto_00222] ⌈ The crypto driver shall only perform this operation if
+CryptoKeyElement/CryptoKeyElementReadAccess is set to
+CRYPTO_RA_ALLOWED or CRYPTO_RA_ENCRYPTED.
+ ()
+Note: Reading keys from SHE hardware is not possible, except if it is a SHE RAM-
+Key. In this case, reading the SHE key will provide M1M2M3. The key element
+should be set to CRYPTO_RA_ENCRYPTED in this case.
+[SWS_Crypto_91006]⌈
+Service
+Crypto_KeyElementGet
+Name
+Std_ReturnType Crypto_KeyElementGet (
+uint32 cryptoKeyId,
+uint32 keyElementId,
+Syntax
+uint8* resultPtr,
+uint32* resultLengthPtr
+)
+Service ID
+0x06
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant
+crypto
+Holds the identifier of the key whose key element shall be returned.
+KeyId
+Parameters
+(in) key
+Element Holds the identifier of the key element which shall be returned.
+Id
+Holds a pointer to a memory location in which the length information is
+stored. On calling this function this parameter shall contain the size of the
+result buffer provided by resultPtr. If the key element is configured to allow
+Parameters
+Length partial access, this parameter contains the amount of data which should
+(inout)
+Ptr be read from the key element. The size may not be equal to the size of
+the provided buffer anymore. When the request has finished, the amount
+of data that has been stored shall be stored.
+59 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

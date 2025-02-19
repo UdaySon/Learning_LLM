@@ -1,0 +1,49 @@
+
+
+E_OK: Request successful
+E_NOT_OK: Request failed
+CRYPTO_E_BUSY: Request failed, Crypto Driver Object is busy
+CRYPTO_E_KEY_NOT_AVAILABLE: Request failed, at least one
+of the requested keys is not available
+CRYPTO_E_KEY_READ_FAIL: Request failed, not allowed to
+Std_Return-
+Return value extract key element
+Type
+CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to
+write key element
+CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key
+element sizes are not compatible
+CRYPTO_E_KEY_EMPTY: Request failed because of
+uninitialized source key element
+Copies a key with all its elements to another key in the same crypto driver. Note: If
+Description the actual key element is directly mapped to flash memory, there could be a bigger
+delay when calling this function (synchronous operation)
+Available via Crypto.h
+()
+[SWS_Crypto_00156] ⌈ If the Crypto Driver is not yet initialized and if development
+error detection for the Crypto Driver is enabled, the function Crypto_KeyCopy shall
+report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00157] ⌈ If cryptoKeyId is out of range and if development error
+detection for the Crypto Driver is enabled, the function Crypto_KeyCopy shall
+report CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00158] ⌈ If targetCryptoKeyId is out of range and if development
+error detection for the Crypto Driver is enabled, the function Crypto_KeyCopy shall
+report CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00159] If no errors are detected by the Crypto Driver, the function
+shall copy all key elements in the key referenced by cryptoKeyId to the key the
+key referenced by targetCryptoKeyId.
+()
+8.3.4.4.4 Crypto_KeyElementIdsGet
+[SWS_Crypto_00160]⌈
+Service
+Crypto_KeyElementIdsGet
+Name
+Std_ReturnType Crypto_KeyElementIdsGet (
+uint32 cryptoKeyId,
+Syntax
+uint32* keyElementIdsPtr,
+uint32* keyElementIdsLengthPtr
+67 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

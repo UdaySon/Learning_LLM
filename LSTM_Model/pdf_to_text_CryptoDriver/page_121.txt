@@ -1,0 +1,34 @@
+
+
+Default value --
+Pre-compile time X All Variants
+Multiplicity Configuration Class Link time --
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration Class Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00058]
+Parameter Name CryptoNvBlockProcessing
+Parent Container CryptoNvBlock
+Description Selects the operation mode when an NV block shall be updated.
+Multiplicity 1
+Type EcucEnumerationParamDef
+CRYPTO_NV_BLOCK_DEFERRED 0x01
+Range
+CRYPTO_NV_BLOCK_IMMEDIATE 0x02
+Pre-compile time X All Variants
+Multiplicity Configuration Class Link time --
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration Class Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00056]
+Parameter Name CryptoNvBlockDescriptorRef
+Parent Container CryptoNvBlock
+Description Reference to an NvM block descriptor
+Multiplicity 1
+Type Symbolic name reference to NvMBlockDescriptor
+Multiplicity Configuration Class Pre-compile time X All Variants
+121 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

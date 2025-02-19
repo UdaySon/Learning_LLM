@@ -1,0 +1,39 @@
+
+
+All
+Pre-compile time X
+Variants
+Multiplicity Configuration
+Class Link time --
+Post-build time --
+All
+Pre-compile time X
+Variants
+Value Configuration Class
+Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00036]
+Parameter Name CryptoPrimitiveAlgorithmMode
+Parent Container CryptoPrimitive
+Description Determines the algorithm mode used for the crypto service
+Multiplicity 1..*
+Type EcucEnumerationParamDef
+CRYPTO_ALGOMODE_12ROUNDS --
+CRYPTO_ALGOMODE_20ROUNDS --
+CRYPTO_ALGOMODE_8ROUNDS --
+CRYPTO_ALGOMODE_CBC --
+CRYPTO_ALGOMODE_CFB --
+CRYPTO_ALGOMODE_CMAC --
+CRYPTO_ALGOMODE_CTR --
+CRYPTO_ALGOMODE_CTRDRBG --
+Range
+CRYPTO_ALGOMODE_CUSTOM --
+CRYPTO_ALGOMODE_ECB --
+CRYPTO_ALGOMODE_GCM --
+CRYPTO_ALGOMODE_GMAC --
+CRYPTO_ALGOMODE_HMAC --
+CRYPTO_ALGOMODE_NOT_SET --
+CRYPTO_ALGOMODE_OFB --
+CRYPTO_ALGOMODE_PXXXR --
+110 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

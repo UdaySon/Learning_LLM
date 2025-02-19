@@ -1,0 +1,9 @@
+
+[SWS_Crypto_00019] ⌈ After initialization the crypto driver is in “idle” state.
+
+[SWS_Crypto_00020] ⌈ If Crypto_ProcessJob() is called while in “Idle” or
+“Active” state and with the operation mode “START”, the previous request shall be
+cancelled. That means, that all previously buffered data for this job shall be reset,
+and the job shall switch to “Active” state and process the new one.
+
+Note:

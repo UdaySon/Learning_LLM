@@ -1,0 +1,40 @@
+
+
+[SWS_Crypto_00031] ⌈ If Crypto_ProcessJob() is called, when the queue is
+empty and the Crypto Driver Object is not busy the Job shall switch to the state
+‘active’ and execute the crypto primitive.
+()
+[SWS_Crypto_00032] ⌈ If Crypto_ProcessJob() is called and the queue is full,
+the function shall return with CRYPTO_E_BUSY.
+()
+Note:
+It has to be ensured, that the asynchronous jobs are processed fast enough to avoid
+that the synchronous job has to wait for a long time.
+It is also recommended to use CRYPTO_OPERATIONMODE_SINGLECALL for the
+asynchronous jobs.
+Note:
+A Crypto Driver Object can handle different jobs with synchronous and asynchronous
+job processing at the same time. However, synchronous job processing and job-
+queuing might not be useful. So, if synchronous job processing is chosen, the job
+queue will not be used, and a job will only be processed, when the Crypto Driver
+Object is not busy.
+[SWS_Crypto_00121] ⌈ If Crypto_ProcessJob() is called and the Job is in
+“ACTIVE” state, the Crypto_ProcessJob()shall check if the requested job
+matches the current job in the Crypto Driver Object and if yes, bypass it from
+queueing.
+()
+This implicates that only jobs with operation mode „START“ shall be queued. If a job
+with operation mode “START” has been finished, the Crypto Driver Object is waiting
+for input. The callback function indicates the callee that an “UPDATE” or “FINISH”
+call shall be performed.
+[SWS_Crypto_00033] ⌈ If Crypto_ProcessJob() is called with asynchronous job
+processing and the queue is not full, but the Crypto Driver Object is busy and if the
+job has the operation mode “START”, the Crypto Driver Object shall put the job into
+the queue and return E_OK.
+()
+[SWS_Crypto_00034] ⌈ If Crypto_ProcessJob() is called with synchronous job
+processing and the queue is not full, but the Crypto Driver Object is busy, the Crypto
+Driver Object shall not queue the job and return CRYPTO_E_BUSY. No job shall be
+put in any queue.
+()
+24 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

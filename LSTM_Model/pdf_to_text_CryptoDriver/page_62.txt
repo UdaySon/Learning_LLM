@@ -1,0 +1,50 @@
+
+
+[SWS_Crypto_00232] ⌈ If the module is not yet initialized and development error
+detection for the Crypto Driver is enabled, the function Crypto_KeyGetStatus shall
+report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00233] ⌈ If parameter cryptoKeyId is out of range and if development
+error detection for the Crypto Driver is enabled, the function Crypto_KeyGetStatus
+shall report CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00234] ⌈ If the parameter keyPtr is a null pointer and if development
+error detection for the Crypto Driver is enabled, the function Crypto_KeyGetStatus
+shall report CRYPTO_E_PARAM_POINTER to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00235] ⌈ If no errors are detected by the Crypto Driver, the status of
+the key shall be placed into keyStatusPtr. If the key is in valid state, the value
+CRYPTO_KEYSTATUS_VALID shall be reported. If the key is currently not valid, the
+status CRYPTO_KEYSTATUS_INVALID shall be reported.
+()
+8.3.4.4 Key Copying Interface
+8.3.4.4.1 Crypto_KeyElementCopy
+[SWS_Crypto_00148]⌈
+Service
+Crypto_KeyElementCopy
+Name
+Std_ReturnType Crypto_KeyElementCopy (
+uint32 cryptoKeyId,
+uint32 keyElementId,
+Syntax
+uint32 targetCryptoKeyId,
+uint32 targetKeyElementId
+)
+Service ID
+0x0f
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant but not for the same cryptoKeyId
+Holds the identifier of the key whose key element shall be the
+cryptoKeyId
+source element.
+Holds the identifier of the key element which shall be the source
+keyElementId
+for the copy operation.
+Parameters
+(in)
+targetCrypto Holds the identifier of the key whose key element shall be the
+KeyId destination element.
+targetKey Holds the identifier of the key element which shall be the
+ElementId destination for the copy operation.
+62 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

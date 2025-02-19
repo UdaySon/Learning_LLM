@@ -1,0 +1,41 @@
+
+
+const uint8* empty* empty* empty* empty* KeyM_Cert
+inputPtr DataType*
+Certificate
+DataPtr
+uint32 empty* empty* empty* empty* empty* empty*
+inputLength
+uint8* uint8* KeyM_Certi uint8* uint16* empty* empty*
+outputPtr CertEleme ficateStatu CertEleme CountPtr
+ntData sType* ntDataPtr
+Status
+uint32* uint32* sizeof(Key uint32* empty* empty* empty*
+outputLength CertEleme M_Certifica CertEleme
+Ptr ntDataLen teStatusTy ntDataLen
+gth pe) gthPtr
+uint8* Std_ReturnType
+secondaryOut
+putPtr
+uint32* sizeof(Std_ReturnType)
+secondaryOut
+putLengthPtr
+**** dispatchId: see [SWS_Crypto_00259]
+[SWS_Crypto_00261]⌈ Certificate element names and Ids:
+Crypto key element Name key Mandatory
+Service element ID
+Certificate Parsing
+Certificate CRYPTO_KE_CERTIFICATE_DATA 0 x
+Format CRYPTO_KE_CERTIFICATE_PARSING_FORMAT 18
+Version CRYPTO_KE_CERTIFICATE_VERSION 20
+Serial CRYPTO_KE_CERTIFICATE_SERIALNUMBER 21
+Number
+Signature CRYPTO_KE_CERTIFICATE_SIGNATURE_ALGORITHM 22
+Algorithm
+Issuer CRYPTO_KE_CERTIFICATE_ISSUER 23
+Validity start CRYPTO_KE_CERTIFICATE_VALIDITY_NOT_BEFORE 24
+Validity end CRYPTO_KE_CERTIFICATE_VALIDITY_NOT_AFTER 25
+Subject CRYPTO_KE_CERTIFICATE_SUBJECT 26
+Subject CRYPTO_KE_CERTIFICATE_SUBJECT_PUBLIC_KEY 1
+Public Key
+39 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,41 @@
+
+
+Rationale:
+This shall prevent an attack where NvBlocks are manipulated to force the driver
+back to an initial state.
+[SWS_Crypto_00250] ⌈ If an NvBlock has no data, respectively the NvBlock is
+empty, key elements of all referenced keys, where CryptoKeyElementInitValue
+is set, shall use this configured init value (as if no key storage is configured for the
+key).
+(SRS_CryptoStack_00061, SRS_CryptoStack_00117)
+[SWS_Crypto_00251] ⌈ After initialization of all key elements at startup (either with
+default or with persisted data), the crypto driver shall check all keys and its key
+elements if they are valid (at least one key element has a value). If so, the
+corresponding key shall be set to VALID state.
+(SRS_CryptoStack_00008, SRS_CryptoStack_00061, SRS_CryptoStack_00117)
+7.2.7 Crypto Profiles
+7.2.7.1 Overview of custom service and function profiles
+The Crypto Driver can support vendor specific custom services and custom
+synchronous API functions, triggered by Csm_CustomService and
+Csm_CustomSync (Crypto_CustomSync). In order to align the realization by different
+Crypto vendors for a particular use case, a mapping of parameters is required. This
+mapping is defined by the definition of profiles for particular use case.
+[SWS_Crypto_00258]⌈ A Crypto profile shall define the mapping for the following
+parameters for Csm_CustomService:
+uint32 JobId
+Crypto_OperationModeType mode
+uint32 targetKeyId
+const uint8* inputPtr
+uint32 inputLength
+const uint8 * secondaryInputPtr
+uint32 secondaryInputLength
+const uint8* tertiaryInputPtr
+uint32 tertiaryInputLength
+uint8* outputPtr
+uint32* outputLengthPtr
+uint8* secondaryOutputPtr
+uint32* secondaryOutputLengthPtr
+Crypto_VerifyResultType* verifyPtr()
+[SWS_Crypto_00259]⌈ A Crypto profile shall define the mapping for the following
+parameters for Csm_CustomSync:
+35 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

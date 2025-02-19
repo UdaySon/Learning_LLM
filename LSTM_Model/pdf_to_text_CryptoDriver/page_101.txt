@@ -1,0 +1,45 @@
+
+
+SWS Item [ECUC_Crypto_00023]
+Parameter Name CryptoKeyElementInitValue
+Parent Container CryptoKeyElement
+Value which will be used to fill the key element during startup (i) for all non-
+Description persistent key elements, and (ii) for those persistent key elements that have
+never been written.
+Multiplicity 0..1
+Type EcucStringParamDef
+Default value 0
+Regular Expression --
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00026]
+Parameter Name CryptoKeyElementPersist
+Parent Container CryptoKeyElement
+Enable or disable persisting of the key element in non-volatile storage. True:
+Description enable persisting of the key element. False: disable persisting of the key
+element.
+Multiplicity 1
+Type EcucBooleanParamDef
+Default value false
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+101 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

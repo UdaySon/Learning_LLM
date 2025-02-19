@@ -1,0 +1,34 @@
+
+
+Parent Container CryptoPrimitives
+Description Configuration of a CryptoPrimitive
+Pre-compile time X All Variants
+Multiplicity Configuration Class Link time --
+Post-build time --
+Configuration Parameters
+SWS Item [ECUC_Crypto_00035]
+Parameter Name CryptoPrimitiveAlgorithmFamily
+Parent Container CryptoPrimitive
+Description Determines the algorithm family used for the crypto service
+Multiplicity 1..*
+Type EcucEnumerationParamDef
+CRYPTO_ALGOFAM_3DES --
+CRYPTO_ALGOFAM_AES --
+CRYPTO_ALGOFAM_BLAKE_1_256 --
+CRYPTO_ALGOFAM_BLAKE_1_512 --
+CRYPTO_ALGOFAM_BLAKE_2s_256 --
+CRYPTO_ALGOFAM_BLAKE_2s_512 --
+CRYPTO_ALGOFAM_BRAINPOOL --
+CRYPTO_ALGOFAM_CHACHA --
+CRYPTO_ALGOFAM_CUSTOM --
+Range
+CRYPTO_ALGOFAM_DH --
+CRYPTO_ALGOFAM_DRBG --
+CRYPTO_ALGOFAM_ECCANSI --
+CRYPTO_ALGOFAM_ECCNIST --
+CRYPTO_ALGOFAM_ECCSEC --
+CRYPTO_ALGOFAM_ECDH --
+CRYPTO_ALGOFAM_ECDSA --
+CRYPTO_ALGOFAM_ED25519 --
+CRYPTO_ALGOFAM_EEA3 --
+108 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,41 @@
+
+
+CRYPTO_ALGOMODE_RSAES_OAEP --
+CRYPTO_ALGOMODE_RSAES_PKCS1_v1_5 --
+CRYPTO_ALGOMODE_RSASSA_PKCS1_
+--
+v1_5
+CRYPTO_ALGOMODE_RSASSA_PSS --
+CRYPTO_ALGOMODE_SIPHASH_2_4 --
+CRYPTO_ALGOMODE_SIPHASH_4_8 --
+CRYPTO_ALGOMODE_XTS --
+Post-Build Variant Value false
+All
+Pre-compile time X
+Variants
+Multiplicity Configuration
+Class Link time --
+Post-build time --
+All
+Pre-compile time X
+Variants
+Value Configuration Class
+Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00037]
+Parameter Name CryptoPrimitiveAlgorithmSecondaryFamily
+Parent Container CryptoPrimitive
+Determines the algorithm secondary family used for the crypto
+Description
+service
+Multiplicity 1..*
+Type EcucEnumerationParamDef
+CRYPTO_ALGOFAM_3DES --
+CRYPTO_ALGOFAM_AES --
+CRYPTO_ALGOFAM_BLAKE_1_256 --
+Range CRYPTO_ALGOFAM_BLAKE_1_512 --
+CRYPTO_ALGOFAM_BLAKE_2s_256 --
+CRYPTO_ALGOFAM_BLAKE_2s_512 --
+CRYPTO_ALGOFAM_BRAINPOOL --
+111 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

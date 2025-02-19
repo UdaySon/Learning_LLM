@@ -1,0 +1,41 @@
+
+
+Link time --
+Post-build time --
+Scope / Dependency scope: local
+SWS Item [ECUC_Crypto_00020]
+Parameter Name CryptoKeyTypeRef
+Parent Container CryptoKey
+Refers to a pointer in the CRYPTOto a CryptoKeyType. The CryptoKeyType
+Description
+provides the information which key elements are contained in a CryptoKey.
+Multiplicity 1
+Type Reference to CryptoKeyType
+Post-Build Variant
+false
+Multiplicity
+Post-Build Variant
+false
+Value
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope / Dependency scope: local
+No Included Containers
+10.1.7 CryptoKeyElements
+CryptoKeyElements_Configuration_link: page_98_image.PNG
+SWS Item [ECUC_Crypto_00005]
+Container Name CryptoKeyElements
+Parent Container Crypto
+Description Container for Crypto key elements
+Configuration Parameters
+Included Containers
+Container Name    Multiplicity    Scope / Dependency
+CryptoKeyElement  1..*            Configuration of a CryptoKeyElement

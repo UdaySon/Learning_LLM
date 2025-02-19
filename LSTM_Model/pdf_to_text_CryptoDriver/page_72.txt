@@ -1,0 +1,43 @@
+
+
+Available via Crypto.h
+()
+[SWS_Crypto_00097] ⌈ If the module is not yet initialized and if development error
+detection for the Crypto Driver is enabled, the function Crypto_KeyDerive shall
+report CRYPTO_E_UNINIT to the DET and return E_NOT_OK.
+()
+[SWS_Crypto_00098] ⌈ If the parameter cryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyDerive shall report CRYPTO_E_PARAM_HANDLE to the DET and return
+E_NOT_OK.
+()
+[SWS_Crypto_00180]⌈ If the parameter targetCryptoKeyId is out of range and if
+development error detection for the Crypto Driver is enabled, the function
+Crypto_KeyDerive shall report CRYPTO_E_PARAM_HANDLE to the DET and return
+E_NOT_OK.()
+[SWS_Crypto_00166] ⌈ If no errors are detected by Crypto Driver, the service
+Crypto_KeyDerive() derives a key element with the aid of a salt and a password.
+()
+The key derivation service needs a salt and password to derivate a new key. The salt
+and the password therefore are stored as key elements in the key referred by
+cryptoKeyId.
+8.3.4.7 Key Exchange Interface
+8.3.4.7.1 Crypto_KeyExchangeCalcPubVal
+[SWS_Crypto_91009]⌈
+Service
+Crypto_KeyExchangeCalcPubVal
+Name
+Std_ReturnType Crypto_KeyExchangeCalcPubVal (
+uint32 cryptoKeyId,
+Syntax uint8* publicValuePtr,
+uint32* publicValueLengthPtr
+)
+Service ID
+0x09
+[hex]
+Sync/Async Synchronous
+Reentrancy Reentrant but not for the same cryptoKeyId
+Parameters cryptoKey Holds the identifier of the key which shall be used for the key exchange
+(in) Id protocol.
+Parameters public Holds a pointer to the memory location in which the public value length
+72 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

@@ -1,0 +1,35 @@
+
+
+Extensions CRYPTO_KE_CERTIFICATE_EXTENSIONS 27
+Signature CRYPTO_KE_CERTIFICATE_SIGNATURE 28
+()
+7.3 Error classification
+Section 7.2 "Error Handling" of the document "General Specification of Basic
+Software Modules" describes the error handling of the Basic Software in detail.
+Above all, it constitutes a classification scheme consisting of five error types which
+may occur in BSW modules.
+Based on this foundation, the following section specifies particular errors arranged in
+the respective subsections below.
+7.3.1 Development Errors
+[SWS_Crypto_00040]⌈
+Error
+Type of error Related error code
+value
+API request called before initialization of Crypto Driver. CRYPTO_E_UNINIT 0x00
+Initialization of Crypto Driver failed CRYPTO_E_INIT_FAILED 0x01
+API request called with invalid parameter (Nullpointer CRYPTO_E_PARAM_
+0x02
+without redirection). POINTER
+CRYPTO_E_PARAM_
+API request called with invalid parameter (out of range). 0x04
+HANDLE
+CRYPTO_E_PARAM_
+API request called with invalid parameter (invalid value). 0x05
+VALUE
+CRYPTO_E_SMALL_
+Buffer is too small for operation 0x06
+BUFFER
+(SRS_CryptoStack_00086)
+7.3.2 Runtime Errors
+[SWS_Crypto_00194]⌈
+40 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

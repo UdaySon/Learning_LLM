@@ -1,0 +1,44 @@
+
+
+result length of the chosen algorithm, the most significant bits of the result shall be
+placed to the available buffer referenced by job->jobPrimitiveInputOutput-
+>outputPtr as a truncated output.
+()
+[SWS_Crypto_00252] ⌈ If job->jobPrimitiveInfo->primitiveInfo-
+>service is set to CRYPTO_RANDOMGENERATE and the parameter job-
+>jobPrimitiveInputOutput->outputLengthPtr is smaller than the result
+length of the chosen algorithm, arbitrary bits of the result of the algorithm shall be
+placed to the available buffer referenced by job->jobPrimitiveInputOutput-
+>outputPtr as a truncated output.
+()
+[SWS_Crypto_00067] ⌈ If the parameter job->jobPrimitiveInfo-
+>primitiveInfo->algorithm (with its variation in family, keyLength and
+mode) is not supported by the Crypto Driver Object and if development error
+detection for the Crypto Driver is enabled, the function Crypto_ProcessJob shall
+report CRYPTO_E_PARAM_HANDLE to the DET and return E_NOT_OK.
+()
+Depending of the crypto service configured in job->jobPrimitiveInfo->
+primitiveInfo->service, different parameters of job->jobPrimitiveInput
+are required to be set with valid values. The table in SWS_Crypto_00071 specifies
+which parameters are required or optional for a service in different modes. The
+following requirements specify the behavior if a required member is a null pointer.
+[SWS_Crypto_00070] ⌈ If a pointer to a buffer is required as an argument, but it is a
+null pointer, the Crypto_ProcessJob() function shall report
+CRYPTO_E_PARAM_POINTER to the DET if development error detection for the
+Crypto Driver is enabled, and return E_NOT_OK.
+()
+[SWS_Crypto_00142] ⌈ If a length information is required for processing a service
+request, either as variable or pointer, but the indicated length value is zero, and if
+development error detection for the Crypto Driver is enabled, the
+Crypto_ProcessJob() function report CRYPTO_E_PARAM_VALUE to the DET and
+return E_NOT_OK.
+()
+[SWS_Crypto_00228] ⌈ If job->jobPrimitiveInputOutput->mode is set to
+CRYPTO_OPERATIONMODE_SAVE_CONTEXT or
+CRYPTO_OPERATIONMODE_RESTORE_CONTEXT the crypto driver shall check if
+CryptoPrimitive/CryptoPrimitiveSupportContext is set to TRUE. If not, the function
+shall return E_NOT_OK.
+()
+[SWS_Crypto_00229] ⌈ If job->jobPrimitiveInputOutput->mode is set to
+CRYPTO_OPERATIONMODE_SAVE_CONTEXT the crypto driver is called, then first the
+48 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

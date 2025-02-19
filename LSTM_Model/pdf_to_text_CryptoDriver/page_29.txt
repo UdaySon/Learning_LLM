@@ -1,0 +1,43 @@
+
+
+A value that identifies the format by its object identifier (OID).
+subjectPublicKey:
+The public key itself.
+(SRS_CryptoStack_00008)
+7.2.5.1 Definition of RSA Key Material
+[SWS_Crypto_00185]⌈ For CRYPTO_KE_FORMAT_BIN_ RSA_PRIVATEKEY the
+parameter ‘KeyMaterial OCTET STRING’ for RSA private keys is defined according
+to IETF RFC8017 and has the following contents:
+KeyMaterial ::= RSAPrivateKey
+RSAPrivateKey ::= SEQUENCE {
+version Version,
+modulus INTEGER, -- n
+publicExponent INTEGER, -- e
+privateExponent INTEGER, -- d
+prime1 INTEGER, -- p
+prime2 INTEGER, -- q
+exponent1 INTEGER, -- d mod (p-1)
+exponent2 INTEGER, -- d mod (q-1)
+coefficient INTEGER -- (inverse of q) mod p }
+Version ::= INTEGER { two-prime(0), multi(1) }
+The fields of type RSAPrivateKey have the following meanings:
+ version is the version number, for compatibility with future revisions of this
+document. It shall be 0 for this version of the document.
+ modulus is the modulus n.
+ publicExponent is the public exponent e.
+ privateExponent is the private exponent d.
+ prime1 is the prime factor p of n.
+ prime2 is the prime factor q of n.
+ exponent1 is d mod (p-1).
+ exponent2 is d mod (q-1).
+ coefficient is the Chinese Remainder Theorem coefficient (inverse of q) mod p.
+(SRS_CryptoStack_00008)
+Note:
+The values for prime1, prime2, exponent1, exponent2 and coefficient are optional. If
+prime1 is not provided, none of the following values in the list shall be provided.
+Otherwise, the key shall be rejected.
+[SWS_Crypto_00186]⌈ The RSA public key in the format
+CRYPTO_KE_FORMAT_BIN _RSA_PUBLICKEY is provided as follows:
+RSAPublicKey ::= SEQUENCE {
+modulus INTEGER, -- n
+29 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

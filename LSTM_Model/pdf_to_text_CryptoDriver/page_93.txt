@@ -1,0 +1,43 @@
+
+
+Multiplicity 1..*
+Type Reference to CryptoPrimitive
+Post-Build Variant
+false
+Multiplicity
+Post-Build Variant
+false
+Value
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+Scope / Dependency scope: local
+No Included Containers
+[SWS_Crypto_CONSTR_00002] ⌈ The ECUC partitions referenced by
+CryptoDriverObjectEcucPartitionRef shall be a subset of the ECUC partitions
+referenced by CryptoEcucPartitionRef.
+()
+[SWS_Crypto_CONSTR_00003] ⌈ If the CryptoDriverObjectEcucPartitionRef shall
+be configured for an HSM it shall be mapped to 0 or 1 ECUC partitions only.
+()
+[SWS_Crypto_CONSTR_00004] ⌈ If CryptoEcucPartitionRef references one or more
+ECUC partitions, CryptoDriverObjectEcucPartitionRef shall have a multiplicity of
+greater than zero and reference one or several of these ECUC partitions as well.
+()
+10.1.5 CryptoKeys
+CryptoKeys_links_To: page_94_image.PNG
+SWS Item [ECUC_Crypto_00004]
+Container Name CryptoKeys
+Parent Container Crypto
+Description Container for CRYPTO keys
+Configuration Parameters
+Included Containers
+Container Name  Multiplicity   Scope / Dependency
+CryptoKey       1..*           Configuration of a CryptoKey

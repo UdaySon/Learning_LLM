@@ -1,0 +1,32 @@
+
+
+(SRS_CryptoStack_00118, SRS_CryptoStack_00119)
+8.5 Scheduled functions
+8.5.1.1 Crypto_MainFunction
+The Crypto_MainFunction() is necessary for asynchronous job processing. For
+synchronous job processing providing the main function is optional.
+[SWS_Crypto_91012]⌈
+Service Name Crypto_MainFunction
+void Crypto_MainFunction (
+Syntax void
+)
+Service ID
+0x0c
+[hex]
+If asynchronous job processing is configured and there are job queues, the function
+Description
+is called cyclically to process queued jobs.
+Available via SchM_Crypto.h
+()
+8.6 Expected Interfaces
+In this section, all interfaces required from other modules are listed.
+8.6.1 Interfaces to Standard Software Modules
+[SWS_Crypto_00126] ⌈ The Crypto Driver shall use an AUTOSAR DET module for
+development error notification.
+()
+8.6.2 Mandatory Interfaces
+[]⌈
+API Function Header File Description
+There are no mandatory interfaces.
+()
+80 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

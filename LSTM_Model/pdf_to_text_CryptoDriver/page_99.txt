@@ -1,0 +1,42 @@
+
+
+10.1.8 CryptoKeyElement
+SWS Item [ECUC_Crypto_00014]
+Container Name CryptoKeyElement
+Parent Container CryptoKeyElements
+Description Configuration of a CryptoKeyElement
+Configuration Parameters
+SWS Item [ECUC_Crypto_00025]
+Parameter Name CryptoKeyElementAllowPartialAccess
+Parent Container CryptoKeyElement
+Enable or disable writing and reading the key element with data smaller than
+Description the size of the element. True: enable partial access of the key element False:
+disable partial access of the key element
+Multiplicity 1
+Type EcucBooleanParamDef
+Default value false
+Pre-compile time X All Variants
+Multiplicity
+Configuration Link time --
+Class
+Post-build time --
+Pre-compile time X All Variants
+Value
+Configuration Link time --
+Class
+Post-build time --
+Scope /
+scope: local
+Dependency
+SWS Item [ECUC_Crypto_00041]
+Parameter Name CryptoKeyElementFormat
+Parent Container CryptoKeyElement
+Defines the format for the key element. This is the format used to provide
+Description
+or extract the key data from the driver.
+Multiplicity 1
+Type EcucEnumerationParamDef
+CRYPTO_KE_FORMAT_BIN_IDENT_PRIVATEKEY_
+Range 0x03
+PKCS8
+99 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver

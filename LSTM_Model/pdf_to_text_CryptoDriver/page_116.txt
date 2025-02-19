@@ -1,0 +1,19 @@
+
+
+Type Reference to CryptoPrimitiveAlgorithmFamilyCustom
+Pre-compile time X All Variants
+Multiplicity
+Link time --
+Configuration Class
+Post-build time --
+Pre-compile time X All Variants
+Value Configuration
+Link time --
+Class
+Post-build time --
+scope: local
+Scope / dependency: This container is only needed if the driver also supports custom
+Dependency specific features for PrimitiveSecondaryAlgorithmFamily for the specific
+CryptoPrimitiveService.
+No Included Containers
+116 of 125 Document ID 807: AUTOSAR_SWS_CryptoDriver
