@@ -1,0 +1,55 @@
+Gap in Indain Software supply
+1. Data cleaning tools - automate data cleaning for different niches - like management tools for data collection and simple no code base judgement.
+2. AI OS.
+3. LLM - inda foundation model
+4. Govt of India LLM model with govt data 
+5. Low cost LLM without need of big GPUs - More experts less compute and more memory.
+
+
+
+Mixture of experts 
+8 * 7B parameters -->
+8 different layers making it experts - each layer is compose of 8 FFN and these are experts 
+
+Context and background of transformer:
+1. Transformers use Attention mechanism (KV matrix) 
+2. After attention there is FFN  - Relu for non lineraity as the language prcoessing is not a linear operation but a non linear operation.
+3. Relu is (2/3)rd of the  Transformer architecture-so optimising this will efficiently increase the inference speed.
+
+
+Why FFN has more parameters in traditional transformer netwrok?
+--FFN -->
+	1. First linear - up projection - ex: 4096 to 4*4096
+	   w.x + b --> x is the output of attention layer, w weights 
+	   w is 4*4096 - random weights from the begining 
+		and these weights are also updated in back propogation.
+	2. RELU 
+	3. 
+
+MOW increases the number of parameters but in inference it follows a easy path
+
+
+Learnign and new ideas-
+MOE is like 8 ffn , each of these 8 is a feature.
+MOE doesnt explicitly label the expert for each feature it is learned dynamically
+
+So the training cost is high in MOE but inference cost is less (1/4 of traditional models) - cost of training MOE might be multi fold higher
+Each exprt has FFN - but restricted weights to only that dynamically learnt expert
+
+1. For code only or specialised niches we can have reduced embeddings as we dont need all contexts but fixed context
+
+
+IDEA: can we inject generalisation instead of fully training  - a very small 
+
+Training and inference to be cost effective-
+
+
+So creating a much smaller and efficient LLM is not possible with my resources 
+Wait but explore how to optimise the differnt parts of LLM like attention , FFN  each parameter
+ML script to tune the LLM to get optimised results
+
+
+
+2. What can I do 
+ ---> current Indian AI are mostly human like chatbots or entertainment
+----> 
