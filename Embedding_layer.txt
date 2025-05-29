@@ -1,0 +1,29 @@
+1. The embedding dimension i.e 12288 dimesion for each token in GPT3 model , consider 12288 dimensional space as multi dimensional space or open space.
+	similarly like x,y --> x,y,z, we have 12288 dimesion space.
+
+2. Init with random values of embeddings and then when a new trainng dat comes , the some words associate a similar feature in context.
+	example: France, India, Germany all of them are learned as and assigned a dimension as country 
+Curiosity and question : why all the 12288 dimesions needs to be non-zero when the feture projections are not in all directions its limited to very few dimensions out of 12288.
+
+Experiment: can we set other embedding dimensions as 0 still keeping 12288 dimension, but only few are active and others forced to 0
+How to do it 1. in torch model force some dimensions to 0 if they are not meaningfull dimensions - 	
+-->why because - if we set some dim to 0 
+
+q,k,v weights are of size 12288 * 12288 as the embedding layer is 12288.
+Tweak - force out of focus projections , but we dont know the each words final projection unless we reach all the training word.
+
+Next approach --
+1. Fixxing the embedding dimension values  - 12288 is not a practical approach as it the case with all the LLMs where they lots of matrix multiplication.
+2. if not for all , atleast for most number of words we can set some dimensional spaces to 0.
+
+Training time efficiency
+3. for mini models better to set the features of a word as dimension and prefill the dimensions.
+	Take a vocab words  - and set some features depending on context, a context specific data out of context data is kicked out.
+	for these words create a feature list like for c programming language--> collect all 32000 vocabs and set only the C programming context dimension to 
+-------> DONT DO ABOVE STEP <----------------
+For trainign extract the embedding alone from codellama and design full model which does this modified matrix multiplicaiton as the 
+embedding dimensions are known and just force close 0 embedding to 0 and even ignore whole operation on it.
+
+
+1. Study to continue on reducing the number of embedding dimension and subsequently everything falls in place.
+2. Too much attention is costly 

@@ -1,0 +1,2 @@
+1. Extract embeddings and vocab from the existing open source model, reuse to train the new model
+2. Extract weights , embeddings and custom matrix multiply 

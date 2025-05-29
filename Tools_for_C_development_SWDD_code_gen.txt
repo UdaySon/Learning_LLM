@@ -1,0 +1,19 @@
+generate code using SWDD 
+1 .Flow chart generator for existing code
+2. define a entry point and performs dynamic test with values.
+3. Fuzz testing
+2. Requirement tracing tool --> Internal requirement --> verification criteria --> SWAD -->
+	a. In SWAD diagram  --> while drawing interfaces use real c code interfaces and later the code shall validate the SWAD interface for correctness.
+	b. Generate the tests for the interface, that pass some values to interface and see if those are reaching the calling module  -- kind of unit test focusing on interface than on complete functionality.
+	c. From SWAD design the SWDDD within each module and these variables and function names shall match in the code.
+        d. In fact generate the code from SWDD using the same global and function names, generate the template code - andn improvise to generate the function code after the SWDD along with the tests.
+	e. SWDD provides good inputs to code generation  model - generated code to go through the regressive test.
+	f. Refactor the CDH and generate the CDH according to the autosar.
+ A full compact tool to ease the software developement for C base softwares
+
+3. Make build system readiness - create a readymade template for make build systems, kind of GUI to configure the build system and then generate the required make files.
+4. Make file unwinding
+5. SWDD to code generation   --> from legacy take all the functions, and 2 options 1. to use exiting or create new one
+
+
+1. make a SWDD tool in c#
